@@ -861,18 +861,36 @@ function renderCompaniesDirectory() {
         const card = document.createElement('div');
         card.className = 'company-card';
 
-        const levelEmoji = company.level === 'Excelência' ? '⭐' : 
-                          company.level === 'Avançado' ? '🏅' : '✓';
+        // Determine level and associated emoji/color based on score ranges.  
+        // 0‑39 → Não Conforme; 40‑69 → Conformidade; 70‑89 → Avançado; 90‑100 → Excelência.
+        let level = 'Não Conforme';
+        let color = '#ef4444'; // red for non‑conformity
+        let levelEmoji = '⚠️';
+
+        const score = Number(company.score);
+        if (score >= 90) {
+            level = 'Excelência';
+            color = '#eab308';
+            levelEmoji = '⭐';
+        } else if (score >= 70) {
+            level = 'Avançado';
+            color = '#3b82f6';
+            levelEmoji = '🏅';
+        } else if (score >= 40) {
+            level = 'Conformidade';
+            color = '#f59e0b';
+            levelEmoji = '✓';
+        }
 
         card.innerHTML = `
-            <div class="certification-seal" style="background: ${company.color};">
+            <div class="certification-seal" style="background: ${color};">
                 ${levelEmoji}
             </div>
             <h3>${company.name}</h3>
             <div class="company-cnpj">${company.cnpj}</div>
             <div class="company-sector">${company.sector}</div>
-            <div class="company-score">${company.score}</div>
-            <div class="company-level">${company.level}</div>
+            <!-- Pontuação omitida para garantir a privacidade. O nível é calculado a partir da pontuação interna. -->
+            <div class="company-level" style="color: ${color};">${level}</div>
             <div class="company-date">Certificado em ${company.date}</div>
         `;
 
