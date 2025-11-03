@@ -3,295 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NCS 2030 - Referencial de Conformidade ESG alinhado aos ODS">
-    <title>NCS 2030 - Selo de Conformidade</title>
-    <!-- Import Google Font for modern typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="NCS 2030 - Selo de Conformidade ESG alinhado aos ODS">
+    <meta name="theme-color" content="#3b82f6">
+    <title>NCS 2030 - Referencial de Certificação Sustentável</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Skip to main content link -->
     <a href="#main-content" class="skip-to-main">Ir para conteúdo principal</a>
 
-    <!-- Navbar -->
-    <nav class="navbar" role="navigation" aria-label="Navegação principal">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-logo">
-                <h1>NCS 2030</h1>
+                <h1>🌱 NCS 2030</h1>
             </div>
-            <button class="hamburger" id="hamburger-menu" aria-label="Menu" aria-expanded="false">
+            <button id="hamburger-menu" class="hamburger" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <ul class="nav-menu" id="nav-menu">
+            <ul id="nav-menu" class="nav-menu">
                 <li><a href="#" onclick="showView('landing')">Início</a></li>
                 <li><a href="#" onclick="scrollToSection('how-it-works')">Como Funciona</a></li>
                 <li><a href="#" onclick="scrollToSection('indicators')">Indicadores</a></li>
-                <li><a href="#" onclick="showView('directory')">Diretório</a></li>
-                <li><button class="btn-login" id="nav-login-btn" onclick="showView('login')">Entrar</button></li>
+                <li><a href="#" onclick="showView('directory')">Certificadas</a></li>
+                <li id="nav-dashboard-link" style="display:none;"><a href="#" onclick="showView('dashboard')">Dashboard</a></li>
+                <li id="nav-logout-link" style="display:none;"><button class="btn-login" onclick="logout()" style="padding:0.5rem 1rem;">Sair</button></li>
+                <li id="nav-auth-link"><button class="btn-login" onclick="showView('login')">Entrar</button></li>
             </ul>
         </div>
     </nav>
 
     <!-- Main Content -->
     <main id="main-content">
-        <!-- Landing Page View -->
+
+        <!-- Landing View -->
         <div id="landing-view" class="view active">
-            <!-- Hero Section -->
-            <section class="hero" role="region" aria-label="Apresentação principal">
+            <section class="hero">
                 <div class="hero-content">
-                    <h2 class="hero-title">Referencial NCS 2030</h2>
+                    <h1 class="hero-title">Referencial NCS 2030</h1>
                     <p class="hero-subtitle">Selo de Conformidade ESG alinhado aos Objetivos de Desenvolvimento Sustentável</p>
                     <div class="hero-ctas">
-                        <button class="btn btn-primary" onclick="showView('login')" aria-label="Iniciar avaliação de conformidade">Iniciar Avaliação</button>
-                        <button class="btn btn-secondary" onclick="showView('login')" aria-label="Entrar na plataforma">Entrar</button>
+                        <button class="btn btn-primary btn-large" onclick="showView('login')">Começar Agora</button>
+                        <button class="btn btn-secondary btn-large" onclick="scrollToSection('how-it-works')">Saiba Mais</button>
                     </div>
                 </div>
             </section>
 
-            <!-- How It Works Section -->
-            <section id="how-it-works" class="how-it-works" role="region" aria-label="Processo de funcionamento">
-                <div class="container">
-                    <h2>Como Funciona</h2>
-                    <div class="steps-container">
-                        <div class="step-card">
-                            <div class="step-number">1</div>
-                            <h3>Cadastro</h3>
-                            <p>Registre sua empresa com informações básicas e aceite os termos da LGPD</p>
-                        </div>
-                        <div class="step-card">
-                            <div class="step-number">2</div>
-                            <h3>Autoavaliação</h3>
-                            <p>Navegue pelos indicadores ESG &amp; ODS e identifique seu nível de responsabilidade socioambiental</p>
-                        </div>
-                        <div class="step-card">
-                            <div class="step-number">3</div>
-                            <h3>Evidências</h3>
-                            <p>Anexe documentos comprobatórios para cada indicador aplicável</p>
-                        </div>
-                        <div class="step-card">
-                            <div class="step-number">4</div>
-                            <h3>Validação Técnica</h3>
-                            <p>Sistema gera hash SHA-256 e carimbo temporal para garantir autenticidade</p>
-                        </div>
-                        <div class="step-card">
-                            <div class="step-number">5</div>
-                            <h3>Certificação</h3>
-                            <p>Ao atingir um nível mínimo de responsabilidade, receba sua certificação – a pontuação detalhada permanece interna para fins de melhoria contínua</p>
-                        </div>
+            <section id="how-it-works" class="how-it-works">
+                <h2>Como Funciona</h2>
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Cadastro</h3>
+                        <p>Registre sua empresa com informações básicas e aceite os termos da LGPD</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Autoavaliação</h3>
+                        <p>Navegue pelos indicadores ESG & ODS e identifique seu nível de responsabilidade</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Evidências</h3>
+                        <p>Anexe documentos comprobatórios para cada indicador aplicável</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3>Certificação</h3>
+                        <p>Receba seu certificado ao atingir o nível mínimo de conformidade</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Indicators Section -->
-            <section id="indicators" class="indicators" role="region" aria-label="Indicadores ESG e ODS">
-                <div class="container">
-                    <h2>Indicadores ESG e ODS</h2>
+            <section id="indicators" class="indicators">
+                <h2>Indicadores ESG e ODS</h2>
 
-                    <!-- Planeta (Ambiental) -->
-                    <div class="indicator-category">
-                        <h3 class="category-title planeta">🌍 Planeta (Ambiental)</h3>
-                        <div class="indicators-grid">
-                            <div class="indicator-card">
-                                <div class="indicator-header">
-                                    <h4>Gestão de Resíduos &amp; Economia Circular</h4>
-                                </div>
-                                <p class="indicator-description">Implementa práticas de resíduos sólidos e economia circular, reduzindo o descarte e promovendo reciclagem (ODS 12).</p>
-                                <button class="btn-tooltip" aria-label="Ver guia de evidências" title="Documentos: planos de gerenciamento de resíduos, relatórios de reciclagem, certificados de logística reversa">ℹ Guia de evidências</button>
+                <div class="indicator-category">
+                    <h3 class="category-title planeta">🌍 Planeta (Ambiental)</h3>
+                    <div class="indicators-grid">
+                        <div class="indicator-card">
+                            <div class="indicator-header">
+                                <h4>Gestão de Resíduos & Economia Circular</h4>
+                                <span class="indicator-points">13 pts</span>
                             </div>
-                            <div class="indicator-card">
-                                <div class="indicator-header">
-                                    <h4>Energia &amp; Recursos Renováveis</h4>
-                                </div>
-                                <p class="indicator-description">Uso e geração de energia limpa e renovável, priorizando fontes como solar, eólica e biomassa (ODS 7).</p>
-                                <button class="btn-tooltip" aria-label="Ver guia de evidências" title="Evidências: faturas de energia renovável, contratos com fornecedores de energia limpa, certificados I-REC">ℹ Guia de evidências</button>
+                            <p class="indicator-description">Implementa práticas de resíduos sólidos e economia circular (ODS 12)</p>
+                        </div>
+                        <div class="indicator-card">
+                            <div class="indicator-header">
+                                <h4>Energia & Recursos Renováveis</h4>
+                                <span class="indicator-points">13 pts</span>
                             </div>
-                            <div class="indicator-card">
-                                <div class="indicator-header">
-                                    <h4>Emissões e Carbono Neutro</h4>
-                                </div>
-                                <p class="indicator-description">Monitoramento e redução das emissões de GEE, com metas de neutralidade de carbono e planos de descarbonização (ODS 13).</p>
-                                <button class="btn-tooltip" aria-label="Ver guia de evidências" title="Documentos: inventário GEE, relatórios de emissões Scope 1, 2 e 3, plano de neutralidade de carbono">ℹ Guia de evidências</button>
+                            <p class="indicator-description">Uso e geração de energia limpa e renovável (ODS 7)</p>
+                        </div>
+                        <div class="indicator-card">
+                            <div class="indicator-header">
+                                <h4>Emissões e Carbono Neutro</h4>
+                                <span class="indicator-points">14 pts</span>
                             </div>
+                            <p class="indicator-description">Monitoramento e redução de emissões de GEE (ODS 13)</p>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Pessoas (Social) -->
-                    <div class="indicator-category">
-                        <h3 class="category-title pessoas">👥 Pessoas (Social)</h3>
-                        <div class="indicators-grid">
-                            <div class="indicator-card">
-                                <div class="indicator-header">
-                                    <h4>Saúde, Segurança &amp; Bem‑estar</h4>
-                                </div>
-                                <p class="indicator-description">Programas de saúde ocupacional, segurança e bem‑estar dos colaboradores e partes interessadas (ODS 3).</p>
-                                <button class="btn-tooltip" aria-label="Ver guia de evidências" title="Documentos: CIPA, PPRA, PCMSO, estatísticas de acidentes, programas de bem‑estar">ℹ Guia de evidências</button>
+                <div class="indicator-category">
+                    <h3 class="category-title pessoas">👥 Pessoas (Social)</h3>
+                    <div class="indicators-grid">
+                        <div class="indicator-card">
+                            <div class="indicator-header">
+                                <h4>Saúde, Segurança & Bem-estar</h4>
+                                <span class="indicator-points">10 pts</span>
                             </div>
-                            <div class="indicator-card">
-                                <div class="indicator-header">
-                                    <h4>Diversidade, Equidade &amp; Inclusão</h4>
-                                </div>
-                                <p class="indicator-description">Promoção da diversidade de gênero, raça, orientação sexual e inclusão de grupos sub‑representados em todos os níveis (ODS 5 &amp; 10).</p>
-                                <button class="btn-tooltip" aria-label="Ver guia de evidências" title="Evidências: relatórios de diversidade, políticas de equidade salarial, programas de inclusão e ações afirmativas">ℹ Guia de evidências</button>
+                            <p class="indicator-description">Programas de saúde, segurança e bem-estar dos colaboradores (ODS 3)</p>
+                        </div>
+                        <div class="indicator-card">
+                            <div class="indicator-header">
+                                <h4>Diversidade, Equidade & Inclusão</h4>
+                                <span class="indicator-points">10 pts</span>
                             </div>
-                            <div class="indicator-card">
-                                <div class="indicator-header">
-                                    <h4>Trabalho Decente, Educação &amp; Comunidade</h4>
-                                </div>
-                                <p class="indicator-description">Garantia de condições dignas de trabalho, acesso à educação continuada e apoio a projetos comunitários (ODS 4 &amp; 8).</p>
-                                <button class="btn-tooltip" aria-label="Ver guia de evidências" title="Documentos: políticas de RH, contratos formalizados, programas de capacitação, projetos comunitários">ℹ Guia de evidências</button>
+                            <p class="indicator-description">Promoção da diversidade de gênero, raça e inclusão (ODS 5 & 10)</p>
+                        </div>
+                        <div class="indicator-card">
+                            <div class="indicator-header">
+                                <h4>Trabalho Decente, Educação & Comunidade</h4>
+                                <span class="indicator-points">10 pts</span>
                             </div>
+                            <p class="indicator-description">Condições dignas de trabalho e educação continuada (ODS 4 & 8)</p>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Prosperidade (Econômico) -->
-                    <div class="indicator-category">
-                        <h3 class="category-title prosperidade">💼 Prosperidade (Econômico)</h3>
-                        <div class="indicators-grid">
-                            <div class="indicator-card">
-                                <div class="indicator-header">
-                                    <h4>Inovação Sustentável &amp; Tecnologia Verde</h4>
-                                </div>
-                                <p class="indicator-description">Investimentos em inovação sustentável, pesquisa e desenvolvimento de tecnologias verdes e soluções de baixo carbono.</p>
-                                <button class="btn-tooltip" aria-label="Ver guia de evidências" title="Evidências: patentes verdes, projetos de P&amp;D, produtos sustentáveis, relatórios de inovação">ℹ Guia de evidências</button>
+                <div class="indicator-category">
+                    <h3 class="category-title prosperidade">💼 Prosperidade (Econômico)</h3>
+                    <div class="indicators-grid">
+                        <div class="indicator-card">
+                            <div class="indicator-header">
+                                <h4>Inovação Sustentável & Tecnologia Verde</h4>
+                                <span class="indicator-points">5 pts</span>
                             </div>
-                            <div class="indicator-card">
-                                <div class="indicator-header">
-                                    <h4>Desenvolvimento Econômico &amp; Cadeia Responsável</h4>
-                                </div>
-                                <p class="indicator-description">Promoção do desenvolvimento econômico local e adoção de práticas de compras e cadeia de suprimentos responsáveis.</p>
-                                <button class="btn-tooltip" aria-label="Ver guia de evidências" title="Documentos: políticas de compras, certificações de fornecedores, relatórios de impacto econômico local">ℹ Guia de evidências</button>
+                            <p class="indicator-description">Investimentos em inovação e tecnologias verdes (ODS 9)</p>
+                        </div>
+                        <div class="indicator-card">
+                            <div class="indicator-header">
+                                <h4>Desenvolvimento Econômico & Cadeia Responsável</h4>
+                                <span class="indicator-points">5 pts</span>
                             </div>
-                            <div class="indicator-card">
-                                <div class="indicator-header">
-                                    <h4>Inclusão Digital &amp; Acessibilidade Tecnológica</h4>
-                                </div>
-                                <p class="indicator-description">Acesso equitativo a tecnologias digitais, inclusão digital e acessibilidade em produtos e serviços (ODS 9).</p>
-                                <button class="btn-tooltip" aria-label="Ver guia de evidências" title="Evidências: relatórios de inclusão digital, acessibilidade web (WCAG), programas de capacitação tecnológica">ℹ Guia de evidências</button>
+                            <p class="indicator-description">Desenvolvimento local e cadeia de suprimentos responsável (ODS 8 & 12)</p>
+                        </div>
+                        <div class="indicator-card">
+                            <div class="indicator-header">
+                                <h4>Inclusão Digital & Acessibilidade Tecnológica</h4>
+                                <span class="indicator-points">5 pts</span>
                             </div>
+                            <p class="indicator-description">Acesso equitativo a tecnologias digitais e inclusão (ODS 9)</p>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Governança & Parcerias -->
-                    <div class="indicator-category">
-                        <h3 class="category-title governanca">⚖️ Governança &amp; Parcerias</h3>
-                        <div class="indicators-grid">
-                            <div class="indicator-card">
-                                <div class="indicator-header">
-                                    <h4>Ética, Integridade &amp; Anticorrupção</h4>
-                                </div>
-                                <p class="indicator-description">Código de ética, canal de denúncias, políticas de integridade e combate à corrupção (ODS 16).</p>
-                                <button class="btn-tooltip" aria-label="Ver guia de evidências" title="Evidências: código de conduta, políticas anticorrupção, certificação ISO 37001, registros de compliance">ℹ Guia de evidências</button>
+                <div class="indicator-category">
+                    <h3 class="category-title governanca">⚖️ Governança & Parcerias</h3>
+                    <div class="indicators-grid">
+                        <div class="indicator-card">
+                            <div class="indicator-header">
+                                <h4>Ética, Integridade & Anticorrupção</h4>
+                                <span class="indicator-points">5 pts</span>
                             </div>
-                            <div class="indicator-card">
-                                <div class="indicator-header">
-                                    <h4>Transparência, Compliance &amp; Proteção de Dados</h4>
-                                </div>
-                                <p class="indicator-description">Conformidade com legislação (como LGPD), transparência na gestão e proteção de dados pessoais.</p>
-                                <button class="btn-tooltip" aria-label="Ver guia de evidências" title="Documentos: políticas de privacidade, relatórios DPO, auditorias de proteção de dados, relatórios de governança">ℹ Guia de evidências</button>
+                            <p class="indicator-description">Código de ética, canal de denúncias, políticas de integridade (ODS 16)</p>
+                        </div>
+                        <div class="indicator-card">
+                            <div class="indicator-header">
+                                <h4>Transparência, Compliance & Proteção de Dados</h4>
+                                <span class="indicator-points">5 pts</span>
                             </div>
-                            <div class="indicator-card">
-                                <div class="indicator-header">
-                                    <h4>Parcerias Estratégicas &amp; Participação ODS</h4>
-                                </div>
-                                <p class="indicator-description">Participação ativa em parcerias multissetoriais e iniciativas alinhadas aos ODS, fortalecendo redes de sustentabilidade.</p>
-                                <button class="btn-tooltip" aria-label="Ver guia de evidências" title="Evidências: convênios ODS, participação em redes ESG, projetos colaborativos, relatórios de sustentabilidade">ℹ Guia de evidências</button>
+                            <p class="indicator-description">Conformidade LGPD, transparência na gestão e proteção de dados (ODS 16)</p>
+                        </div>
+                        <div class="indicator-card">
+                            <div class="indicator-header">
+                                <h4>Parcerias Estratégicas & Participação ODS</h4>
+                                <span class="indicator-points">5 pts</span>
                             </div>
+                            <p class="indicator-description">Parcerias multissetoriais alinhadas aos ODS (ODS 17)</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- CTA Section -->
-            <section class="cta-section" role="region" aria-label="Chamada para ação">
-                <div class="container">
-                    <h2>Pronto para Certificar sua Empresa?</h2>
-                    <p>Cadastre-se agora e obtenha seu selo de conformidade NCS 2030</p>
-                    <button class="btn btn-primary btn-large" onclick="showView('login')">Iniciar Avaliação</button>
-                </div>
+            <section class="cta-section">
+                <h2>Pronto para Certificar sua Empresa?</h2>
+                <p>Cadastre-se agora e obtenha seu selo de conformidade NCS 2030</p>
+                <button class="btn btn-primary btn-large" onclick="showView('login')" style="background: white; color: var(--primary-color);">Comece sua Autoavaliação</button>
             </section>
         </div>
 
-        <!-- Login/Registro View -->
+        <!-- Authentication View -->
         <div id="login-view" class="view">
             <div class="auth-container">
                 <div class="auth-form">
                     <h2>Autenticação</h2>
-
-                    <!-- Tabs -->
                     <div class="auth-tabs">
-                        <button class="tab-btn active" onclick="switchAuthTab('login')" aria-selected="true">Entrar</button>
-                        <button class="tab-btn" onclick="switchAuthTab('register')" aria-selected="false">Cadastrar</button>
+                        <button class="tab-btn active" onclick="switchAuthTab('login')">Login</button>
+                        <button class="tab-btn" onclick="switchAuthTab('register')">Cadastro</button>
                     </div>
 
-                    <!-- Login Form -->
-                    <form id="login-form" class="auth-tab-content active" aria-label="Formulário de login">
-                        <div class="form-group">
-                            <label for="login-email">E-mail *</label>
-                            <input type="email" id="login-email" required aria-required="true" placeholder="seu@email.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="login-password">Senha *</label>
-                            <input type="password" id="login-password" required aria-required="true" placeholder="••••••••">
-                        </div>
-                        <div id="login-error" class="error-message" role="alert" aria-live="polite"></div>
-                        <button type="submit" class="btn btn-primary">Entrar</button>
-                        <p class="auth-link">Não tem conta? <a href="#" onclick="switchAuthTab('register')">Cadastre-se</a></p>
-                    </form>
+                    <div id="login-form-tab" class="auth-tab-content active">
+                        <form id="login-form">
+                            <div id="login-error" class="error-message"></div>
+                            <div class="form-group">
+                                <label for="login-email">E-mail da Empresa</label>
+                                <input type="email" id="login-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="login-password">Senha</label>
+                                <input type="password" id="login-password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Entrar</button>
+                        </form>
+                        <p class="auth-link"><a href="#" onclick="showView('landing')">Voltar ao início</a></p>
+                    </div>
 
-                    <!-- Register Form -->
-                    <form id="register-form" class="auth-tab-content" aria-label="Formulário de cadastro">
-                        <div class="form-group">
-                            <label for="register-company">Razão Social *</label>
-                            <input type="text" id="register-company" required aria-required="true" placeholder="Empresa LTDA">
-                        </div>
-                        <div class="form-group">
-                            <label for="register-cnpj">CNPJ *</label>
-                            <input type="text" id="register-cnpj" required aria-required="true" placeholder="XX.XXX.XXX/XXXX-XX">
-                        </div>
-                        <div class="form-group">
-                            <label for="register-size">Porte *</label>
-                            <select id="register-size" required aria-required="true">
-                                <option value="">Selecione...</option>
-                                <option value="ME">Microempresa</option>
-                                <option value="Pequena">Pequena</option>
-                                <option value="Média">Média</option>
-                                <option value="Grande">Grande</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="register-sector">Setor *</label>
-                            <input type="text" id="register-sector" required aria-required="true" placeholder="Ex: Tecnologia">
-                        </div>
-                        <div class="form-group">
-                            <label for="register-responsible">Responsável *</label>
-                            <input type="text" id="register-responsible" required aria-required="true" placeholder="Nome do responsável">
-                        </div>
-                        <div class="form-group">
-                            <label for="register-email">E-mail *</label>
-                            <input type="email" id="register-email" required aria-required="true" placeholder="seu@email.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="register-phone">Telefone *</label>
-                            <input type="tel" id="register-phone" required aria-required="true" placeholder="(11) 99999-9999">
-                        </div>
-                        <div class="form-group">
-                            <label for="register-password">Senha *</label>
-                            <input type="password" id="register-password" required aria-required="true" placeholder="Mínimo 8 caracteres">
-                        </div>
-                        <div class="form-group">
-                            <label for="register-password-confirm">Confirmar Senha *</label>
-                            <input type="password" id="register-password-confirm" required aria-required="true" placeholder="Confirme a senha">
-                        </div>
-                        <div class="form-group checkbox">
-                            <input type="checkbox" id="register-lgpd" required aria-required="true">
-                            <label for="register-lgpd">Li e concordo com os termos da LGPD - Lei Geral de Proteção de Dados *</label>
-                        </div>
-                        <div id="register-error" class="error-message" role="alert" aria-live="polite"></div>
-                        <button type="submit" class="btn btn-primary">Criar Conta</button>
-                        <p class="auth-link">Já tem conta? <a href="#" onclick="switchAuthTab('login')">Entre aqui</a></p>
-                    </form>
+                    <div id="register-form-tab" class="auth-tab-content">
+                        <form id="register-form">
+                            <div id="register-error" class="error-message"></div>
+                            <div class="form-group">
+                                <label for="register-company">Razão Social</label>
+                                <input type="text" id="register-company" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-cnpj">CNPJ</label>
+                                <input type="text" id="register-cnpj" placeholder="XX.XXX.XXX/0001-XX" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-size">Porte</label>
+                                <select id="register-size" required>
+                                    <option value="">Selecione</option>
+                                    <option value="Microempresa">Microempresa</option>
+                                    <option value="Pequena">Pequena</option>
+                                    <option value="Média">Média</option>
+                                    <option value="Grande">Grande</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-sector">Setor</label>
+                                <select id="register-sector" required>
+                                    <option value="">Selecione</option>
+                                    <option value="Tecnologia">Tecnologia</option>
+                                    <option value="Alimentício">Alimentício</option>
+                                    <option value="Energia">Energia</option>
+                                    <option value="Vestuário">Vestuário</option>
+                                    <option value="Comércio">Comércio</option>
+                                    <option value="Manufatura">Manufatura</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-responsible">Responsável</label>
+                                <input type="text" id="register-responsible" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-email">E-mail Corporativo</label>
+                                <input type="email" id="register-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-phone">Telefone</label>
+                                <input type="tel" id="register-phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-password">Senha</label>
+                                <input type="password" id="register-password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-password-confirm">Confirmar Senha</label>
+                                <input type="password" id="register-password-confirm" required>
+                            </div>
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="register-lgpd" required>
+                                <label for="register-lgpd">Aceito os <a href="#" onclick="showModal('terms')" style="color: var(--primary-color); text-decoration: underline;">Termos de Uso</a> e a <a href="#" onclick="showModal('privacy')" style="color: var(--primary-color); text-decoration: underline;">Política de Privacidade</a> conforme LGPD</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Cadastrar</button>
+                        </form>
+                        <p class="auth-link"><a href="#" onclick="showView('landing')">Voltar ao início</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -299,97 +290,245 @@
         <!-- Dashboard View -->
         <div id="dashboard-view" class="view">
             <div class="dashboard-container">
-                <div class="dashboard-header">
-                    <h2 id="dashboard-company-name">Bem-vindo!</h2>
-                    <button class="btn btn-secondary" onclick="logout()" aria-label="Fazer logout">Sair</button>
+                <!-- Sidebar -->
+                <div class="dashboard-sidebar">
+                    <div class="sidebar-header">
+                        <h2 style="color: var(--primary-color); margin: 0;">🌱 NCS 2030</h2>
+                    </div>
+                    <div class="company-info">
+                        <div class="info-item">
+                            <span class="info-label">Empresa</span>
+                            <span class="info-value" id="sidebar-company"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">CNPJ</span>
+                            <span class="info-value" id="sidebar-cnpj"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Porte</span>
+                            <span class="info-value" id="sidebar-porte"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Setor</span>
+                            <span class="info-value" id="sidebar-setor"></span>
+                        </div>
+                    </div>
+                    <nav class="sidebar-nav">
+                        <button class="nav-btn active" onclick="switchDashboardTab('overview')">📊 Visão Geral</button>
+                        <button class="nav-btn" onclick="switchDashboardTab('indicators')">📋 Indicadores</button>
+                        <button class="nav-btn" onclick="switchDashboardTab('evidence')">📁 Evidências</button>
+                        <button class="nav-btn" onclick="switchDashboardTab('reports')">📄 Relatórios</button>
+                        <button class="nav-btn" onclick="switchDashboardTab('certifications')">🏆 Certificações</button>
+                        <button class="nav-btn" onclick="switchDashboardTab('feedback')">💬 Feedback</button>
+                    </nav>
+                    <button class="btn btn-secondary" onclick="logout()" style="width: 100%; margin-top: 2rem;">Logout</button>
                 </div>
 
-                <!-- Progress Section -->
-                <section class="progress-section" role="region" aria-label="Progresso de conformidade">
-                    <h3>Progresso de Conformidade</h3>
-                    <div class="progress-container">
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                <!-- Main Dashboard Content -->
+                <div class="dashboard-main">
+                    <div class="dashboard-header">
+                        <div>
+                            <h1 id="dashboard-company-name">Bem-vindo(a)</h1>
+                            <p class="dashboard-subtitle" id="dashboard-date"></p>
                         </div>
-                        <!-- Progress text now refers to the number of indicators conformes rather than pontos -->
-                        <p class="progress-text" id="progress-text">Indicadores Conformes: 0/12</p>
-                        <p class="progress-status" id="progress-status">Nível: Não Conforme</p>
+                        <div class="header-actions">
+                            <button class="btn btn-secondary" onclick="alert('Perfil da empresa')">👤 Perfil</button>
+                        </div>
                     </div>
-                </section>
 
-                <!-- Indicators List -->
-                <section class="indicators-section" role="region" aria-label="Lista de indicadores">
-                    <h3>Indicadores ESG</h3>
+                    <!-- OVERVIEW TAB -->
+                    <div id="overview-tab" class="dashboard-tab active">
+                        <div class="overview-grid">
+                            <div class="stats-card">
+                                <div class="stat-icon">📊</div>
+                                <div class="stat-content">
+                                    <p class="stat-label">Total de Indicadores</p>
+                                    <p class="stat-value">12</p>
+                                </div>
+                            </div>
+                            <div class="stats-card">
+                                <div class="stat-icon" style="color: #10b981;">✓</div>
+                                <div class="stat-content">
+                                    <p class="stat-label">Conformes</p>
+                                    <p class="stat-value" id="stat-conformes">0</p>
+                                </div>
+                            </div>
+                            <div class="stats-card">
+                                <div class="stat-icon" style="color: #f59e0b;">⏳</div>
+                                <div class="stat-content">
+                                    <p class="stat-label">Pendentes</p>
+                                    <p class="stat-value" id="stat-pendentes">12</p>
+                                </div>
+                            </div>
+                            <div class="stats-card">
+                                <div class="stat-icon" style="color: #3b82f6;">⭐</div>
+                                <div class="stat-content">
+                                    <p class="stat-label">Pontos Acumulados</p>
+                                    <p class="stat-value" id="stat-pontos">0</p>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div id="indicators-list" class="indicators-list">
-                        <!-- Populated by JavaScript -->
+                        <div class="progress-container">
+                            <h3>Progresso Geral</h3>
+                            <div class="progress-level" id="progress-level">Não Conforme</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
+                            </div>
+                            <p class="progress-text"><span id="progress-percentage">0</span>% - <span id="progress-score">0</span> de 100 pontos</p>
+                        </div>
+
+                        <div class="categories-progress">
+                            <h3>Progresso por Categoria</h3>
+                            <div class="category-progress-item">
+                                <div class="category-progress-header">
+                                    <span>🌍 Planeta (Ambiental)</span>
+                                    <span id="cat-planeta">0 / 40</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="cat-planeta-fill" style="width: 0%; background: #10b981;"></div>
+                                </div>
+                            </div>
+                            <div class="category-progress-item">
+                                <div class="category-progress-header">
+                                    <span>👥 Pessoas (Social)</span>
+                                    <span id="cat-pessoas">0 / 30</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="cat-pessoas-fill" style="width: 0%; background: #3b82f6;"></div>
+                                </div>
+                            </div>
+                            <div class="category-progress-item">
+                                <div class="category-progress-header">
+                                    <span>💼 Prosperidade (Econômico)</span>
+                                    <span id="cat-prosperidade">0 / 15</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="cat-prosperidade-fill" style="width: 0%; background: #0ea5e9;"></div>
+                                </div>
+                            </div>
+                            <div class="category-progress-item">
+                                <div class="category-progress-header">
+                                    <span>⚖️ Governança</span>
+                                    <span id="cat-governanca">0 / 15</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="cat-governanca-fill" style="width: 0%; background: #f59e0b;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="activities-section">
+                            <h3>Últimas Atividades</h3>
+                            <div id="activities-feed" class="activities-feed"></div>
+                        </div>
                     </div>
-                </section>
 
-                <!-- Upload Section -->
-                <section class="upload-section" role="region" aria-label="Upload de evidências">
-                    <h3>Anexar Evidência</h3>
-                    <div class="upload-container">
-                        <input type="file" id="file-input" aria-label="Selecionar arquivo para upload">
-                        <button class="btn btn-primary" onclick="handleFileUpload()" aria-label="Processar upload de arquivo">Processar Arquivo</button>
+                    <!-- INDICATORS TAB -->
+                    <div id="indicators-tab" class="dashboard-tab">
+                        <div class="tab-header">
+                            <h2>Meus Indicadores</h2>
+                            <div class="filter-controls">
+                                <select id="filter-category" onchange="filterIndicators()">
+                                    <option value="">Todas as Categorias</option>
+                                    <option value="Planeta">Planeta</option>
+                                    <option value="Pessoas">Pessoas</option>
+                                    <option value="Prosperidade">Prosperidade</option>
+                                    <option value="Governanca">Governança</option>
+                                </select>
+                                <select id="filter-status" onchange="filterIndicators()">
+                                    <option value="">Todos os Status</option>
+                                    <option value="Conforme">Conforme</option>
+                                    <option value="Pendente">Pendente</option>
+                                    <option value="Em Análise">Em Análise</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="indicators-list" class="indicators-table-container"></div>
                     </div>
-                    <div id="upload-result" class="upload-result"></div>
-                </section>
 
-                <!-- Report Button -->
-                <section class="report-section" role="region" aria-label="Geração de relatório">
-                    <button class="btn btn-primary btn-large" onclick="generateReport()" aria-label="Gerar relatório mock">Gerar Relatório (Mock)</button>
-                </section>
+                    <!-- EVIDENCE TAB -->
+                    <div id="evidence-tab" class="dashboard-tab">
+                        <h2>Evidências & Documentos</h2>
+                        <p class="tab-description">Envie documentos, certificados e evidências para cada indicador. Não há limite de arquivos por indicador.</p>
+                        <div id="evidence-list" class="evidence-list"></div>
+                    </div>
+
+                    <!-- REPORTS TAB -->
+                    <div id="reports-tab" class="dashboard-tab">
+                        <h2>Relatórios</h2>
+                        <div class="reports-container">
+                            <div class="reports-generator">
+                                <h3>Gerar Novo Relatório</h3>
+                                <div class="report-options">
+                                    <button class="btn btn-primary" onclick="generateReport('consolidado')">📊 Relatório Consolidado</button>
+                                    <button class="btn btn-primary" onclick="generateReport('planeta')">🌍 Categoria Planeta</button>
+                                    <button class="btn btn-primary" onclick="generateReport('pessoas')">👥 Categoria Pessoas</button>
+                                    <button class="btn btn-primary" onclick="generateReport('prosperidade')">💼 Categoria Prosperidade</button>
+                                    <button class="btn btn-primary" onclick="generateReport('governanca')">⚖️ Categoria Governança</button>
+                                </div>
+                            </div>
+                            <div id="reports-history" class="reports-history"></div>
+                        </div>
+                    </div>
+
+                    <!-- CERTIFICATIONS TAB -->
+                    <div id="certifications-tab" class="dashboard-tab">
+                        <h2>Certificações</h2>
+                        <div id="certification-card" class="certification-display"></div>
+                    </div>
+
+                    <!-- FEEDBACK TAB -->
+                    <div id="feedback-tab" class="dashboard-tab">
+                        <h2>Feedback & Comunicação</h2>
+                        <div id="feedback-list" class="feedback-list"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Directory View -->
         <div id="directory-view" class="view">
-            <div class="directory-container">
-                <h2>Diretório de Empresas Certificadas</h2>
+            <div class="container">
+                <h1 style="text-align: center; margin-bottom: 1rem;">Diretório de Empresas Certificadas</h1>
                 <p class="directory-subtitle">Confira as empresas que já obtiveram o Selo NCS 2030</p>
-
-                <div class="companies-grid" id="companies-grid">
-                    <!-- Populated by JavaScript -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Report Modal -->
-        <div id="report-modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h2>Relatório de Conformidade</h2>
-                <div id="report-content"></div>
-                <button class="btn btn-secondary" onclick="closeModal()">Fechar</button>
+                <div class="companies-grid" id="companies-grid"></div>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#" onclick="showModal('terms')">Termos de Uso</a>
-                <a href="#" onclick="showModal('privacy')">Política de Privacidade</a>
-            </div>
-            <div class="footer-disclaimer">
-                <p>⚠️ <strong>Aviso Importante:</strong> Alinhado à Agenda 2030 (ODS). Não constitui chancela oficial da Organização das Nações Unidas.</p>
-            </div>
-            <div class="footer-copyright">
-                <p>&copy; 2025 NCS 2030 - Referencial de Conformidade ESG. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Modal for terms/privacy -->
+    <!-- Modals -->
     <div id="info-modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <div id="modal-body"></div>
-            <button class="btn btn-secondary" onclick="closeModal()">Fechar</button>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h4>NCS 2030</h4>
+                <p class="footer-disclaimer">Referencial de Certificação ESG alinhado aos Objetivos de Desenvolvimento Sustentável da Agenda 2030 da ONU.</p>
+            </div>
+            <div class="footer-links">
+                <div>
+                    <h5>Recursos</h5>
+                    <a href="#" onclick="scrollToSection('how-it-works')">Como Funciona</a><br>
+                    <a href="#" onclick="scrollToSection('indicators')">Indicadores</a>
+                </div>
+                <div>
+                    <h5>Legal</h5>
+                    <a href="#" onclick="showModal('terms')">Termos de Uso</a><br>
+                    <a href="#" onclick="showModal('privacy')">Privacidade</a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+            <p class="footer-copyright">© 2024-2025 NCS 2030. Todos os direitos reservados. | Desenvolvido com ❤️ para Sustentabilidade</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
