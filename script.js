@@ -1,45 +1,169 @@
-// Data Storage and State Management
+// =====================================
+// DATA STORAGE & STATE MANAGEMENT
+// =====================================
 const appState = {
     currentView: 'landing',
+    currentDashboardTab: 'overview',
     user: null,
     progress: 0,
     indicators: [
         // Planeta (Ambiental) – 40 pontos
-        { id: 1, name: 'Gestão de Resíduos & Economia Circular', category: 'Planeta', categoryLabel: 'Ambiental (E)', points: 13, status: 'Pendente' },
-        { id: 2, name: 'Energia & Recursos Renováveis', category: 'Planeta', categoryLabel: 'Ambiental (E)', points: 13, status: 'Pendente' },
-        { id: 3, name: 'Emissões e Carbono Neutro', category: 'Planeta', categoryLabel: 'Ambiental (E)', points: 14, status: 'Pendente' },
+        {
+            id: 1,
+            name: 'Gestão de Resíduos & Economia Circular',
+            category: 'Planeta',
+            categoryLabel: 'Ambiental (E)',
+            points: 13,
+            status: 'Pendente'
+        },
+        {
+            id: 2,
+            name: 'Energia & Recursos Renováveis',
+            category: 'Planeta',
+            categoryLabel: 'Ambiental (E)',
+            points: 13,
+            status: 'Pendente'
+        },
+        {
+            id: 3,
+            name: 'Emissões e Carbono Neutro',
+            category: 'Planeta',
+            categoryLabel: 'Ambiental (E)',
+            points: 14,
+            status: 'Pendente'
+        },
         // Pessoas (Social) – 30 pontos
-        { id: 4, name: 'Saúde, Segurança & Bem-estar', category: 'Pessoas', categoryLabel: 'Social (S)', points: 10, status: 'Pendente' },
-        { id: 5, name: 'Diversidade, Equidade & Inclusão', category: 'Pessoas', categoryLabel: 'Social (S)', points: 10, status: 'Pendente' },
-        { id: 6, name: 'Trabalho Decente, Educação & Comunidade', category: 'Pessoas', categoryLabel: 'Social (S)', points: 10, status: 'Pendente' },
+        {
+            id: 4,
+            name: 'Saúde, Segurança & Bem-estar',
+            category: 'Pessoas',
+            categoryLabel: 'Social (S)',
+            points: 10,
+            status: 'Pendente'
+        },
+        {
+            id: 5,
+            name: 'Diversidade, Equidade & Inclusão',
+            category: 'Pessoas',
+            categoryLabel: 'Social (S)',
+            points: 10,
+            status: 'Pendente'
+        },
+        {
+            id: 6,
+            name: 'Trabalho Decente, Educação & Comunidade',
+            category: 'Pessoas',
+            categoryLabel: 'Social (S)',
+            points: 10,
+            status: 'Pendente'
+        },
         // Prosperidade (Econômico) – 15 pontos
-        { id: 7, name: 'Inovação Sustentável & Tecnologia Verde', category: 'Prosperidade', categoryLabel: 'Econômico (P)', points: 5, status: 'Pendente' },
-        { id: 8, name: 'Desenvolvimento Econômico & Cadeia Responsável', category: 'Prosperidade', categoryLabel: 'Econômico (P)', points: 5, status: 'Pendente' },
-        { id: 9, name: 'Inclusão Digital & Acessibilidade Tecnológica', category: 'Prosperidade', categoryLabel: 'Econômico (P)', points: 5, status: 'Pendente' },
+        {
+            id: 7,
+            name: 'Inovação Sustentável & Tecnologia Verde',
+            category: 'Prosperidade',
+            categoryLabel: 'Econômico (P)',
+            points: 5,
+            status: 'Pendente'
+        },
+        {
+            id: 8,
+            name: 'Desenvolvimento Econômico & Cadeia Responsável',
+            category: 'Prosperidade',
+            categoryLabel: 'Econômico (P)',
+            points: 5,
+            status: 'Pendente'
+        },
+        {
+            id: 9,
+            name: 'Inclusão Digital & Acessibilidade Tecnológica',
+            category: 'Prosperidade',
+            categoryLabel: 'Econômico (P)',
+            points: 5,
+            status: 'Pendente'
+        },
         // Governança & Parcerias – 15 pontos
-        { id: 10, name: 'Ética, Integridade & Anticorrupção', category: 'Governança', categoryLabel: 'Governança (G)', points: 5, status: 'Pendente' },
-        { id: 11, name: 'Transparência, Compliance & Proteção de Dados', category: 'Governança', categoryLabel: 'Governança (G)', points: 5, status: 'Pendente' },
-        { id: 12, name: 'Parcerias Estratégicas & Participação ODS', category: 'Governança', categoryLabel: 'Governança (G)', points: 5, status: 'Pendente' }
+        {
+            id: 10,
+            name: 'Ética, Integridade & Anticorrupção',
+            category: 'Governanca',
+            categoryLabel: 'Governança (G)',
+            points: 5,
+            status: 'Pendente'
+        },
+        {
+            id: 11,
+            name: 'Transparência, Compliance & Proteção de Dados',
+            category: 'Governanca',
+            categoryLabel: 'Governança (G)',
+            points: 5,
+            status: 'Pendente'
+        },
+        {
+            id: 12,
+            name: 'Parcerias Estratégicas & Participação ODS',
+            category: 'Governanca',
+            categoryLabel: 'Governança (G)',
+            points: 5,
+            status: 'Pendente'
+        }
+    ],
+    evidence: {},
+    reports: [],
+    feedback: [
+        {
+            id: 1,
+            date: new Date().toISOString(),
+            author: 'Sistema de Análise',
+            type: 'Sugestão',
+            message: 'Bem-vindo ao NCS 2030! Comece preenchendo seus indicadores de sustentabilidade.',
+            read: false
+        }
     ],
     certifiedCompanies: [
-        { name: 'EcoTech Indústria Ltda.', cnpj: '12.345.678/0001-90', sector: 'Tecnologia', score: 92, level: 'Excelência', date: 'Janeiro 2025', color: '#eab308' },
-        { name: 'Sustenta Alimentos S.A.', cnpj: '98.765.432/0001-11', sector: 'Alimentício', score: 87, level: 'Avançado', date: 'Dezembro 2024', color: '#3b82f6' },
-        { name: 'Verde Energia Renovável', cnpj: '45.678.901/0001-23', sector: 'Energia', score: 78, level: 'Conformidade', date: 'Novembro 2024', color: '#f59e0b' }
+        {
+            name: 'EcoTech Indústria Ltda.',
+            cnpj: '12.345.678/0001-90',
+            sector: 'Tecnologia',
+            score: 92,
+            level: 'Excelência',
+            date: 'Janeiro 2025',
+            color: '#eab308'
+        },
+        {
+            name: 'Sustenta Alimentos S.A.',
+            cnpj: '98.765.432/0001-11',
+            sector: 'Alimentício',
+            score: 87,
+            level: 'Avançado',
+            date: 'Dezembro 2024',
+            color: '#3b82f6'
+        },
+        {
+            name: 'Verde Energia Renovável',
+            cnpj: '45.678.901/0001-23',
+            sector: 'Energia',
+            score: 78,
+            level: 'Conformidade',
+            date: 'Novembro 2024',
+            color: '#f59e0b'
+        }
     ]
 };
 
-// Initialize on page load
+// =====================================
+// INITIALIZATION
+// =====================================
 document.addEventListener('DOMContentLoaded', () => {
     loadUserFromStorage();
     initializeEventListeners();
-    renderIndicatorsList();
     renderCompaniesDirectory();
     checkAuth();
+    updateDate();
 });
 
 // Initialize event listeners
 function initializeEventListeners() {
-    // Hamburger menu
     const hamburger = document.getElementById('hamburger-menu');
     const navMenu = document.getElementById('nav-menu');
 
@@ -50,7 +174,6 @@ function initializeEventListeners() {
         });
     }
 
-    // Auth forms
     const loginForm = document.getElementById('login-form');
     const registerForm = document.getElementById('register-form');
 
@@ -61,40 +184,84 @@ function initializeEventListeners() {
     if (registerForm) {
         registerForm.addEventListener('submit', handleRegister);
     }
+
+    window.addEventListener('click', (e) => {
+        const infoModal = document.getElementById('info-modal');
+        if (e.target === infoModal) {
+            infoModal.classList.remove('show');
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
 }
 
-// View Management
+// =====================================
+// VIEW MANAGEMENT
+// =====================================
 function showView(viewName) {
-    // Hide all views
     document.querySelectorAll('.view').forEach(view => {
         view.classList.remove('active');
     });
 
-    // Show selected view
     const view = document.getElementById(viewName + '-view');
     if (view) {
         view.classList.add('active');
         appState.currentView = viewName;
 
-        // Check authentication for dashboard
         if (viewName === 'dashboard' && !appState.user) {
             showView('login');
             return;
         }
+
+        if (viewName === 'dashboard' && appState.user) {
+            updateDashboard();
+        }
     }
 
-    // Close mobile menu
     document.getElementById('nav-menu')?.classList.remove('active');
 }
 
-// Authentication Functions
+function switchDashboardTab(tabName) {
+    document.querySelectorAll('.dashboard-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    const tab = document.getElementById(tabName + '-tab');
+    if (tab) {
+        tab.classList.add('active');
+        appState.currentDashboardTab = tabName;
+    }
+
+    event.target.classList.add('active');
+
+    if (tabName === 'evidence') {
+        renderEvidenceList();
+    } else if (tabName === 'feedback') {
+        renderFeedbackList();
+    } else if (tabName === 'certifications') {
+        renderCertificationCard();
+    } else if (tabName === 'reports') {
+        renderReports();
+    }
+}
+
+// =====================================
+// AUTHENTICATION
+// =====================================
 function handleLogin(e) {
     e.preventDefault();
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
     const errorDiv = document.getElementById('login-error');
 
-    // Validate stored user
     const storedUser = JSON.parse(localStorage.getItem('ncs_user') || '{}');
 
     if (storedUser.email === email && storedUser.password === password) {
@@ -115,7 +282,6 @@ function handleLogin(e) {
 
 function handleRegister(e) {
     e.preventDefault();
-
     const formData = {
         razaoSocial: document.getElementById('register-company').value,
         cnpj: document.getElementById('register-cnpj').value,
@@ -132,7 +298,6 @@ function handleRegister(e) {
 
     const errorDiv = document.getElementById('register-error');
 
-    // Validations
     if (formData.password !== formData.passwordConfirm) {
         errorDiv.textContent = 'As senhas não correspondem.';
         errorDiv.classList.add('show');
@@ -151,7 +316,6 @@ function handleRegister(e) {
         return;
     }
 
-    // Save user
     delete formData.passwordConfirm;
     localStorage.setItem('ncs_user', JSON.stringify(formData));
     localStorage.setItem('ncs_session', JSON.stringify({
@@ -159,7 +323,6 @@ function handleRegister(e) {
         email: formData.email,
         timestamp: new Date().toISOString()
     }));
-
     appState.user = formData;
     loadUserFromStorage();
     showView('dashboard');
@@ -173,7 +336,8 @@ function loadUserFromStorage() {
     if (session.isLoggedIn && user.email) {
         appState.user = user;
         updateDashboardHeader();
-        loadProgressFromStorage();
+        updateSidebarInfo();
+        updateNavigation();
     }
 }
 
@@ -199,302 +363,543 @@ function updateDashboardHeader() {
     }
 }
 
-// Progress and Indicators Management
-function renderIndicatorsList() {
-    const listContainer = document.getElementById('indicators-list');
-    if (!listContainer) return;
-
-    listContainer.innerHTML = '';
-
-    appState.indicators.forEach(indicator => {
-        const indicatorEl = document.createElement('div');
-        indicatorEl.className = 'indicator-item';
-
-        const categoryColor = {
-            'Planeta': '#10b981',
-            'Pessoas': '#3b82f6',
-            // Novo grupo econômico/Prosperidade
-            'Prosperidade': '#0ea5e9',
-            'Governança': '#f59e0b'
-        };
-
-        const statusClass = indicator.status === 'Conforme' ? 'status-conforme' : 'status-pendente';
-
-        indicatorEl.innerHTML = `
-            <div class="indicator-item-header">
-                <div class="indicator-item-title">
-                    <div>
-                        <h4>${indicator.name}</h4>
-                        <p style="font-size: 0.85rem; color: #6b7280; margin: 0.25rem 0 0 0;">
-                            <span class="indicator-badge" style="background: ${categoryColor}22; color: ${categoryColor}; margin-right: 0.5rem;">${indicator.categoryLabel}</span>
-                        </p>
-                    </div>
-                </div>
-                <div style="display: flex; gap: 0.5rem; align-items: center;">
-                    <span class="status-badge ${statusClass}">${indicator.status}</span>
-                </div>
-            </div>
-        `;
-
-        listContainer.appendChild(indicatorEl);
-    });
+function updateSidebarInfo() {
+    if (appState.user) {
+        document.getElementById('sidebar-company').textContent = appState.user.razaoSocial;
+        document.getElementById('sidebar-cnpj').textContent = appState.user.cnpj;
+        document.getElementById('sidebar-porte').textContent = appState.user.porte;
+        document.getElementById('sidebar-setor').textContent = appState.user.setor;
+    }
 }
 
-function updateIndicatorStatus(indicatorId, newStatus) {
-    const indicator = appState.indicators.find(ind => ind.id === indicatorId);
-    if (indicator) {
-        indicator.status = newStatus;
-        calculateProgress();
-        renderIndicatorsList();
-        saveProgressToStorage();
+function updateNavigation() {
+    const dashboardLink = document.getElementById('nav-dashboard-link');
+    const logoutLink = document.getElementById('nav-logout-link');
+    const authLink = document.getElementById('nav-auth-link');
+
+    if (appState.user) {
+        dashboardLink.style.display = 'block';
+        logoutLink.style.display = 'block';
+        authLink.style.display = 'none';
+    } else {
+        dashboardLink.style.display = 'none';
+        logoutLink.style.display = 'none';
+        authLink.style.display = 'block';
     }
+}
+
+// =====================================
+// DASHBOARD UPDATE
+// =====================================
+function updateDashboard() {
+    calculateProgress();
+    renderProgress();
+    renderIndicatorsList();
+    renderActivitiesFeed();
+    updateDate();
 }
 
 function calculateProgress() {
-    // Calculate progress based on points (internal) and completed indicator count
     let totalPoints = 0;
-    let completedCount = 0;
-    const weight = getIndicatorWeight();
-    appState.indicators.forEach(indicator => {
-        if (indicator.status === 'Conforme') {
-            // Apply weight to indicator points for internal ranking
-            totalPoints += indicator.points * weight;
-            completedCount++;
+    let earnedPoints = 0;
+
+    appState.indicators.forEach(ind => {
+        totalPoints += ind.points;
+        if (ind.status === 'Conforme') {
+            earnedPoints += ind.points;
         }
     });
-    // Cap progress at 100 for display purposes
-    appState.progress = Math.min(Math.round(totalPoints), 100);
-    appState.completedIndicators = completedCount;
-    updateProgressBar();
+
+    appState.progress = Math.round((earnedPoints / totalPoints) * 100);
 }
 
-// Calculate a weighting factor based on company size. Smaller companies têm pontuação ajustada.
-function getIndicatorWeight() {
-    if (!appState.user || !appState.user.porte) return 1;
-    switch (appState.user.porte) {
-        case 'ME': // Microempresa
-            return 0.8;
-        case 'Pequena':
-            return 0.9;
-        case 'Média':
-            return 1;
-        case 'Grande':
-            return 1.2;
-        default:
-            return 1;
-    }
-}
+function renderProgress() {
+    const percentage = appState.progress;
+    const earnedPoints = appState.indicators
+        .filter(ind => ind.status === 'Conforme')
+        .reduce((sum, ind) => sum + ind.points, 0);
 
-function updateProgressBar() {
-    const fill = document.getElementById('progress-fill');
-    const text = document.getElementById('progress-text');
-    const status = document.getElementById('progress-status');
+    const conformes = appState.indicators.filter(ind => ind.status === 'Conforme').length;
+    const pendentes = appState.indicators.filter(ind => ind.status !== 'Conforme').length;
 
-    if (fill) {
-        // Calculate percentage based on number of indicators conformes
-        const total = appState.indicators.length;
-        const completed = appState.completedIndicators || 0;
-        const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
-        fill.style.width = `${percent}%`;
-        fill.textContent = `${percent}%`;
-    }
+    document.getElementById('progress-percentage').textContent = percentage;
+    document.getElementById('progress-score').textContent = earnedPoints;
+    document.getElementById('progress-fill').style.width = percentage + '%';
 
-    if (text) {
-        const total = appState.indicators.length;
-        const completed = appState.completedIndicators || 0;
-        text.textContent = `Indicadores Conformes: ${completed}/${total}`;
-    }
+    let level = 'Não Conforme';
+    if (percentage >= 90) level = 'Excelência';
+    else if (percentage >= 70) level = 'Avançado';
+    else if (percentage >= 40) level = 'Conformidade';
 
-    if (status) {
-        // Show only the level (not numeric score) to the user
-        let statusText = 'Nível: Não Conforme';
-        if (appState.progress >= 96) statusText = 'Nível: Platina ⭐';
-        else if (appState.progress >= 90) statusText = 'Nível: Excelência';
-        else if (appState.progress >= 75) statusText = 'Nível: Conformidade Avançada';
-        else if (appState.progress >= 60) statusText = 'Nível: Conformidade Básica';
-        status.textContent = statusText;
-    }
-}
+    document.getElementById('progress-level').textContent = level;
 
-function saveProgressToStorage() {
-    const progress = {
-        score: appState.progress,
-        indicators: appState.indicators.map(ind => ({ id: ind.id, status: ind.status })),
-        timestamp: new Date().toISOString()
+    // Stats
+    document.getElementById('stat-conformes').textContent = conformes;
+    document.getElementById('stat-pendentes').textContent = pendentes;
+    document.getElementById('stat-pontos').textContent = earnedPoints;
+
+    // Category progress
+    const categories = {
+        'Planeta': { earned: 0, total: 40 },
+        'Pessoas': { earned: 0, total: 30 },
+        'Prosperidade': { earned: 0, total: 15 },
+        'Governanca': { earned: 0, total: 15 }
     };
-    localStorage.setItem('ncs_progress', JSON.stringify(progress));
-}
 
-function loadProgressFromStorage() {
-    const saved = JSON.parse(localStorage.getItem('ncs_progress') || '{}');
-    if (saved.indicators) {
-        saved.indicators.forEach(item => {
-            const indicator = appState.indicators.find(ind => ind.id === item.id);
-            if (indicator) {
-                indicator.status = item.status;
+    appState.indicators.forEach(ind => {
+        const cat = ind.category;
+        if (categories[cat]) {
+            if (ind.status === 'Conforme') {
+                categories[cat].earned += ind.points;
             }
+        }
+    });
+
+    Object.keys(categories).forEach(cat => {
+        const earned = categories[cat].earned;
+        const total = categories[cat].total;
+        const pct = Math.round((earned / total) * 100);
+
+        document.getElementById('cat-' + cat.toLowerCase()).textContent = 
+            earned + ' / ' + total;
+
+        const fillEl = document.getElementById('cat-' + cat.toLowerCase() + '-fill');
+        if (fillEl) {
+            fillEl.style.width = pct + '%';
+        }
+    });
+}
+
+function renderIndicatorsList() {
+    const container = document.getElementById('indicators-list');
+    if (!container) return;
+
+    const table = document.createElement('table');
+    table.className = 'indicators-table';
+
+    const thead = document.createElement('thead');
+    thead.innerHTML = `
+        <tr>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th>Pontos</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    `;
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+    appState.indicators.forEach(ind => {
+        const tr = document.createElement('tr');
+        const categoryColors = {
+            'Planeta': 'badge-planeta',
+            'Pessoas': 'badge-pessoas',
+            'Prosperidade': 'badge-prosperidade',
+            'Governanca': 'badge-governanca'
+        };
+
+        const statusClass = ind.status === 'Conforme' ? 'status-conforme' : 
+                          ind.status === 'Em Análise' ? 'status-analise' : 'status-pendente';
+
+        tr.innerHTML = `
+            <td>${ind.name}</td>
+            <td><span class="badge ${categoryColors[ind.category]}">${ind.categoryLabel}</span></td>
+            <td><strong>${ind.points}</strong></td>
+            <td><span class="badge ${statusClass}">${ind.status}</span></td>
+            <td>
+                <div class="table-actions">
+                    <button class="btn btn-primary btn-small" onclick="toggleIndicatorStatus(${ind.id})">
+                        ${ind.status === 'Conforme' ? '✓' : '→'} Marcar
+                    </button>
+                </div>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+
+    container.innerHTML = '';
+    container.appendChild(table);
+}
+
+function toggleIndicatorStatus(id) {
+    const indicator = appState.indicators.find(ind => ind.id === id);
+    if (indicator) {
+        const statuses = ['Pendente', 'Em Análise', 'Conforme'];
+        const currentIndex = statuses.indexOf(indicator.status);
+        indicator.status = statuses[(currentIndex + 1) % statuses.length];
+        updateDashboard();
+    }
+}
+
+function filterIndicators() {
+    const category = document.getElementById('filter-category')?.value;
+    const status = document.getElementById('filter-status')?.value;
+
+    let filtered = appState.indicators;
+    if (category) {
+        filtered = filtered.filter(ind => ind.category === category);
+    }
+    if (status) {
+        filtered = filtered.filter(ind => ind.status === status);
+    }
+
+    const container = document.getElementById('indicators-list');
+    if (!container) return;
+
+    const table = document.createElement('table');
+    table.className = 'indicators-table';
+
+    const thead = document.createElement('thead');
+    thead.innerHTML = `
+        <tr>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th>Pontos</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    `;
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+    filtered.forEach(ind => {
+        const tr = document.createElement('tr');
+        const categoryColors = {
+            'Planeta': 'badge-planeta',
+            'Pessoas': 'badge-pessoas',
+            'Prosperidade': 'badge-prosperidade',
+            'Governanca': 'badge-governanca'
+        };
+
+        const statusClass = ind.status === 'Conforme' ? 'status-conforme' : 
+                          ind.status === 'Em Análise' ? 'status-analise' : 'status-pendente';
+
+        tr.innerHTML = `
+            <td>${ind.name}</td>
+            <td><span class="badge ${categoryColors[ind.category]}">${ind.categoryLabel}</span></td>
+            <td><strong>${ind.points}</strong></td>
+            <td><span class="badge ${statusClass}">${ind.status}</span></td>
+            <td>
+                <div class="table-actions">
+                    <button class="btn btn-primary btn-small" onclick="toggleIndicatorStatus(${ind.id})">
+                        ${ind.status === 'Conforme' ? '✓' : '→'} Marcar
+                    </button>
+                </div>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+
+    container.innerHTML = '';
+    container.appendChild(table);
+}
+
+function renderActivitiesFeed() {
+    const feed = document.getElementById('activities-feed');
+    if (!feed) return;
+
+    feed.innerHTML = '';
+    const activities = [
+        'Dashboard acessado com sucesso',
+        'Empresa vinculada à conta',
+        'Indicadores carregados'
+    ];
+
+    activities.forEach((activity, index) => {
+        const item = document.createElement('div');
+        item.className = 'activity-item';
+        item.innerHTML = `
+            <div class="activity-title">${activity}</div>
+            <div class="activity-time">${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR')}</div>
+        `;
+        feed.appendChild(item);
+    });
+}
+
+// =====================================
+// EVIDENCE
+// =====================================
+function renderEvidenceList() {
+    const container = document.getElementById('evidence-list');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    appState.indicators.forEach(ind => {
+        const evidenceItem = document.createElement('div');
+        evidenceItem.className = 'evidence-item';
+
+        const fileList = appState.evidence[ind.id] || [];
+        const filesHTML = fileList.length > 0 
+            ? fileList.map(file => `
+                <div class="file-item">
+                    <div class="file-info">
+                        <span class="file-name">📄 ${file.name}</span>
+                        <span class="file-meta">${file.size} KB • ${new Date(file.date).toLocaleDateString('pt-BR')}</span>
+                    </div>
+                    <div class="file-actions">
+                        <button class="btn btn-secondary btn-small" onclick="removeFile(${ind.id}, '${file.name}')">🗑️ Deletar</button>
+                    </div>
+                </div>
+            `).join('')
+            : '<p style="color: #6b7280;">Nenhum arquivo enviado</p>';
+
+        evidenceItem.innerHTML = `
+            <div class="evidence-header">
+                <div>
+                    <div class="evidence-title">${ind.name}</div>
+                    <span class="badge badge-${ind.category.toLowerCase()}">${ind.categoryLabel}</span>
+                </div>
+            </div>
+            <div class="upload-area" onclick="document.getElementById('file-input-${ind.id}').click()">
+                <input type="file" id="file-input-${ind.id}" onchange="uploadFile(${ind.id}, event)">
+                <p>📤 Clique ou arraste aqui para enviar um arquivo</p>
+            </div>
+            <div class="file-list">
+                ${filesHTML}
+            </div>
+        `;
+
+        container.appendChild(evidenceItem);
+    });
+}
+
+function uploadFile(indicatorId, event) {
+    const file = event.target.files[0];
+    if (file) {
+        if (!appState.evidence[indicatorId]) {
+            appState.evidence[indicatorId] = [];
+        }
+
+        appState.evidence[indicatorId].push({
+            name: file.name,
+            size: (file.size / 1024).toFixed(2),
+            date: new Date().toISOString(),
+            hash: generateHash()
         });
-        appState.progress = saved.score || 0;
-        updateProgressBar();
-        renderIndicatorsList();
+
+        renderEvidenceList();
     }
 }
 
-// File Upload and SHA-256 Hash
-async function generateSHA256(text) {
-    try {
-        const encoder = new TextEncoder();
-        const data = encoder.encode(text);
-        const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-        const hashArray = Array.from(new Uint8Array(hashBuffer));
-        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-    } catch (error) {
-        console.error('Erro ao gerar hash:', error);
-        return 'ERROR';
+function removeFile(indicatorId, fileName) {
+    if (appState.evidence[indicatorId]) {
+        appState.evidence[indicatorId] = appState.evidence[indicatorId]
+            .filter(f => f.name !== fileName);
+        renderEvidenceList();
     }
 }
 
-async function handleFileUpload() {
-    const fileInput = document.getElementById('file-input');
-    const resultDiv = document.getElementById('upload-result');
+function generateHash() {
+    return 'SHA-' + Math.random().toString(36).substr(2, 12).toUpperCase();
+}
 
-    if (!fileInput.files.length) {
-        resultDiv.textContent = 'Por favor, selecione um arquivo.';
-        resultDiv.classList.add('show');
+// =====================================
+// REPORTS
+// =====================================
+function generateReport(type) {
+    const report = {
+        id: appState.reports.length + 1,
+        type: type,
+        name: type === 'consolidado' ? 'Relatório Consolidado' : `Relatório - ${type}`,
+        date: new Date().toISOString()
+    };
+
+    appState.reports.unshift(report);
+    renderReports();
+    alert(`Relatório "${report.name}" gerado com sucesso!`);
+}
+
+function renderReports() {
+    const container = document.getElementById('reports-history');
+    if (!container) return;
+
+    container.innerHTML = '<h4>Relatórios Gerados</h4>';
+
+    if (appState.reports.length === 0) {
+        container.innerHTML += '<p style="color: #6b7280;">Nenhum relatório gerado ainda.</p>';
         return;
     }
 
-    const file = fileInput.files[0];
-    const timestamp = new Date().toLocaleString('pt-BR');
-    const hashInput = file.name + timestamp;
+    const reportsList = document.createElement('div');
+    appState.reports.forEach(report => {
+        const item = document.createElement('div');
+        item.className = 'report-item';
+        item.innerHTML = `
+            <div class="report-info">
+                <div class="report-name">${report.name}</div>
+                <div class="report-date">${new Date(report.date).toLocaleDateString('pt-BR')} às ${new Date(report.date).toLocaleTimeString('pt-BR')}</div>
+            </div>
+            <button class="btn btn-primary btn-small" onclick="alert('Download do relatório em desenvolvimento')">⬇️ Download</button>
+        `;
+        reportsList.appendChild(item);
+    });
 
-    // Generate SHA-256 hash
-    const hash = await generateSHA256(hashInput);
+    container.appendChild(reportsList);
+}
 
-    // Display result
-    resultDiv.innerHTML = `
-        <div style="border: 1px solid #e5e7eb; border-radius: 4px; padding: 1rem;">
-            <p><strong>Arquivo Processado:</strong></p>
-            <p>📄 Nome: <code>${file.name}</code></p>
-            <p>📊 Tamanho: ${(file.size / 1024).toFixed(2)} KB</p>
-            <p><strong>Hash SHA-256:</strong></p>
-            <p class="upload-hash">${hash}</p>
-            <p><strong>Carimbo Temporal:</strong></p>
-            <p><code>${timestamp}</code></p>
-            <p style="color: #10b981; margin-top: 1rem; font-weight: 600;">✓ Arquivo validado com sucesso!</p>
-        </div>
-    `;
-    resultDiv.classList.add('show');
+// =====================================
+// CERTIFICATIONS
+// =====================================
+function renderCertificationCard() {
+    const container = document.getElementById('certification-card');
+    if (!container) return;
 
-    // Mark first pending indicator as compliant
-    const pendingIndicator = appState.indicators.find(ind => ind.status === 'Pendente');
-    if (pendingIndicator) {
-        updateIndicatorStatus(pendingIndicator.id, 'Conforme');
+    const percentage = appState.progress;
+    const earnedPoints = appState.indicators
+        .filter(ind => ind.status === 'Conforme')
+        .reduce((sum, ind) => sum + ind.points, 0);
+
+    let level = 'Não Conforme';
+    let color = '#ef4444';
+    if (percentage >= 90) {
+        level = 'Excelência';
+        color = '#eab308';
+    } else if (percentage >= 70) {
+        level = 'Avançado';
+        color = '#3b82f6';
+    } else if (percentage >= 40) {
+        level = 'Conformidade';
+        color = '#f59e0b';
     }
 
-    // Clear file input
-    fileInput.value = '';
-}
+    const isEligible = earnedPoints >= 40;
 
-// Report Generation
-function generateReport() {
-    const reportContent = document.getElementById('report-content');
-    const statusLevel = getStatusLevel();
-
-    let indicatorsHtml = '<h3>Indicadores Conformes:</h3><ul>';
-    appState.indicators.forEach(ind => {
-        if (ind.status === 'Conforme') {
-            indicatorsHtml += `<li>${ind.name} (${ind.points} pts)</li>`;
-        }
-    });
-    indicatorsHtml += '</ul>';
-
-    reportContent.innerHTML = `
-        <div style="background: #f3f4f6; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-            <h3>Dados da Empresa</h3>
-            <p><strong>Razão Social:</strong> ${appState.user.razaoSocial}</p>
-            <p><strong>CNPJ:</strong> ${appState.user.cnpj}</p>
-            <p><strong>Porte:</strong> ${appState.user.porte}</p>
-            <p><strong>Setor:</strong> ${appState.user.setor}</p>
+    container.innerHTML = `
+        <div class="cert-card" style="background: linear-gradient(135deg, ${color}, #0ea5e9);">
+            <div class="cert-number">NCS-2024-${Math.random().toString().substr(2, 5).toUpperCase()}</div>
+            <div class="cert-level">${level}</div>
+            <div class="cert-details">
+                <div class="cert-detail">
+                    <div class="cert-detail-label">Pontuação</div>
+                    <div class="cert-detail-value">${earnedPoints}/100</div>
+                </div>
+                <div class="cert-detail">
+                    <div class="cert-detail-label">Percentual</div>
+                    <div class="cert-detail-value">${percentage}%</div>
+                </div>
+                <div class="cert-detail">
+                    <div class="cert-detail-label">Status</div>
+                    <div class="cert-detail-value">${isEligible ? 'Ativo' : 'Inelegível'}</div>
+                </div>
+            </div>
         </div>
 
-        <div style="background: #f3f4f6; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-            <h3>Resultado da Avaliação</h3>
-            <p style="font-size: 2rem; color: #2563eb; font-weight: 700; margin: 0.5rem 0;">${appState.progress} / 100 pontos</p>
-            <p style="font-size: 1.2rem; font-weight: 600; color: ${getStatusColor()};"><strong>Nível:</strong> ${statusLevel}</p>
-        </div>
+        <div class="cert-criteria">
+            <h4>Critérios de Conformidade:</h4>
+            <div class="criteria-list">
+                <div class="criteria-item${earnedPoints >= 40 ? '' : ' pending'}">
+                    ✓ Mínimo de 40 pontos alcançados (${earnedPoints}/40)
+                </div>
+                <div class="criteria-item${appState.indicators.filter(i => i.status === 'Conforme').length >= 5 ? '' : ' pending'}">
+                    ✓ Pelo menos 5 indicadores conformes (${appState.indicators.filter(i => i.status === 'Conforme').length}/5)
+                </div>
+                <div class="criteria-item${Object.keys(appState.evidence).length > 0 ? '' : ' pending'}">
+                    ✓ Documentação enviada (${Object.keys(appState.evidence).length} indicador(es) com arquivos)
+                </div>
+            </div>
 
-        ${indicatorsHtml}
-
-        <div style="background: #fef3c7; padding: 1rem; border-radius: 4px; margin-top: 1.5rem; border-left: 4px solid #f59e0b;">
-            <p><strong>⚠️ Nota Importante:</strong> Este é um relatório simulado. Em produção, seria gerado um PDF certificado assinado digitalmente.</p>
+            ${isEligible ? `
+                <div class="next-level">
+                    🎯 Próximo Nível: Avançado (requer 70 pontos)
+                </div>
+            ` : `
+                <div class="next-level">
+                    ⚠️ Continue preenchendo seus indicadores para alcançar a certificação.
+                </div>
+            `}
         </div>
     `;
-
-    document.getElementById('report-modal').classList.add('show');
 }
 
-function getStatusLevel() {
-    if (appState.progress >= 96) return 'Platina ⭐';
-    if (appState.progress >= 90) return 'Excelência';
-    if (appState.progress >= 75) return 'Conformidade Avançada';
-    if (appState.progress >= 60) return 'Conformidade Básica';
-    return 'Não Conforme';
+// =====================================
+// FEEDBACK
+// =====================================
+function renderFeedbackList() {
+    const container = document.getElementById('feedback-list');
+    if (!container) return;
+
+    if (appState.feedback.length === 0) {
+        container.innerHTML = '<p style="color: #6b7280;">Nenhuma mensagem de feedback.</p>';
+        return;
+    }
+
+    container.innerHTML = '';
+    appState.feedback.forEach(fb => {
+        const item = document.createElement('div');
+        item.className = 'feedback-item';
+
+        const typeClass = 'type-' + fb.type.toLowerCase().replace(/ã/g, 'a').replace(/á/g, 'a');
+
+        item.innerHTML = `
+            <div class="feedback-header">
+                <div class="feedback-meta">
+                    <span class="feedback-author">${fb.author}</span>
+                    <span class="feedback-type">${fb.type}</span>
+                </div>
+            </div>
+            <div class="feedback-message">${fb.message}</div>
+            <div class="feedback-time">${new Date(fb.date).toLocaleDateString('pt-BR')} às ${new Date(fb.date).toLocaleTimeString('pt-BR')}</div>
+        `;
+
+        container.appendChild(item);
+    });
 }
 
-function getStatusColor() {
-    if (appState.progress >= 96) return '#8b5cf6';
-    if (appState.progress >= 90) return '#eab308';
-    if (appState.progress >= 75) return '#3b82f6';
-    if (appState.progress >= 60) return '#f59e0b';
-    return '#ef4444';
-}
-
-// Directory
+// =====================================
+// COMPANIES DIRECTORY
+// =====================================
 function renderCompaniesDirectory() {
     const grid = document.getElementById('companies-grid');
     if (!grid) return;
 
     grid.innerHTML = '';
-
     appState.certifiedCompanies.forEach(company => {
         const card = document.createElement('div');
         card.className = 'company-card';
-        card.setAttribute('role', 'article');
-        card.setAttribute('aria-label', `Empresa certificada: ${company.name}`);
+
+        const levelEmoji = company.level === 'Excelência' ? '⭐' : 
+                          company.level === 'Avançado' ? '🏅' : '✓';
 
         card.innerHTML = `
             <div class="certification-seal" style="background: ${company.color};">
-                ${company.level === 'Platina' ? '⭐' : company.level === 'Excelência' ? '🏆' : company.level === 'Avançado' ? '✨' : '✓'}
+                ${levelEmoji}
             </div>
             <h3>${company.name}</h3>
-            <p class="company-cnpj">${company.cnpj}</p>
-            <p class="company-sector">${company.sector}</p>
-            <!-- A pontuação numérica é interna; exibe-se apenas o nível de certificação -->
-            <p class="company-level">${company.level}</p>
-            <p class="company-date">Certificado em ${company.date}</p>
+            <div class="company-cnpj">${company.cnpj}</div>
+            <div class="company-sector">${company.sector}</div>
+            <div class="company-score">${company.score}</div>
+            <div class="company-level">${company.level}</div>
+            <div class="company-date">Certificado em ${company.date}</div>
         `;
 
         grid.appendChild(card);
     });
 }
 
-// Auth Tab Switching
+// =====================================
+// UTILITY FUNCTIONS
+// =====================================
 function switchAuthTab(tab) {
     const loginForm = document.getElementById('login-form');
     const registerForm = document.getElementById('register-form');
+    const loginTab = document.getElementById('login-form-tab');
+    const registerTab = document.getElementById('register-form-tab');
     const tabs = document.querySelectorAll('.tab-btn');
 
     if (tab === 'login') {
-        loginForm.classList.add('active');
-        registerForm.classList.remove('active');
+        loginTab.classList.add('active');
+        registerTab.classList.remove('active');
         tabs[0].classList.add('active');
         tabs[0].setAttribute('aria-selected', 'true');
         tabs[1].classList.remove('active');
         tabs[1].setAttribute('aria-selected', 'false');
     } else {
-        registerForm.classList.add('active');
-        loginForm.classList.remove('active');
+        registerTab.classList.add('active');
+        loginTab.classList.remove('active');
         tabs[1].classList.add('active');
         tabs[1].setAttribute('aria-selected', 'true');
         tabs[0].classList.remove('active');
@@ -502,7 +907,6 @@ function switchAuthTab(tab) {
     }
 }
 
-// Scroll to section
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -510,9 +914,7 @@ function scrollToSection(sectionId) {
     }
 }
 
-// Modal Management
 function closeModal() {
-    document.getElementById('report-modal').classList.remove('show');
     document.getElementById('info-modal').classList.remove('show');
 }
 
@@ -524,53 +926,49 @@ function showModal(type) {
         body.innerHTML = `
             <h2>Termos de Uso</h2>
             <p>O Referencial NCS 2030 – Selo de Conformidade é uma plataforma de autoavaliação ESG alinhada aos Objetivos de Desenvolvimento Sustentável (ODS) da Agenda 2030.</p>
-            <h3>Consentimento e Responsabilidade</h3>
             <p>Ao utilizar esta plataforma, você concorda que:</p>
             <ul>
-                <li>As informações fornecidas são de sua responsabilidade</li>
-                <li>As avaliações são de caráter autoavaliativo</li>
-                <li>A plataforma fornece dados para fins informativos</li>
-                <li>Você aceita os termos da LGPD para proteção de dados</li>
+                <li>Todas as informações fornecidas são precisas e verídicas</li>
+                <li>Você tem autoridade para representar a empresa</li>
+                <li>Utilizará a plataforma em conformidade com todas as leis aplicáveis</li>
+                <li>Todo conteúdo está protegido por leis de direitos autorais</li>
             </ul>
-            <h3>Propriedade Intelectual</h3>
-            <p>Todo conteúdo desta plataforma está protegido por leis de direitos autorais.</p>
         `;
     } else if (type === 'privacy') {
         body.innerHTML = `
             <h2>Política de Privacidade</h2>
-            <h3>Coleta de Dados</h3>
-            <p>Coletamos informações que você nos fornece voluntariamente, incluindo dados da empresa e responsável.</p>
-            <h3>Uso de Dados</h3>
-            <p>Seus dados são utilizados exclusivamente para:</p>
+            <p>Estamos em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei 13.709/2018).</p>
+            <p><strong>Coleta de Dados:</strong> Coletamos informações que você nos fornece voluntariamente, incluindo dados da empresa e responsável.</p>
+            <p><strong>Uso de Dados:</strong> Seus dados são utilizados exclusivamente para:</p>
             <ul>
-                <li>Processamento de sua avaliação ESG</li>
-                <li>Geração de relatórios de conformidade</li>
-                <li>Melhoramento da plataforma</li>
+                <li>Processar sua autoavaliação ESG</li>
+                <li>Gerar relatórios e certificações</li>
+                <li>Melhorar nossos serviços</li>
             </ul>
-            <h3>Conformidade LGPD</h3>
-            <p>Estamos em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei 13.709/2018). Seus dados são armazenados de forma segura e não são compartilhados com terceiros sem seu consentimento.</p>
-            <h3>Seus Direitos</h3>
-            <p>Você tem direito a acessar, corrigir, deletar ou portabilidade de seus dados.</p>
+            <p><strong>Segurança:</strong> Seus dados são armazenados de forma segura e não são compartilhados com terceiros sem seu consentimento.</p>
+            <p><strong>Seus Direitos:</strong> Você tem direito a acessar, corrigir, deletar ou portabilidade de seus dados.</p>
         `;
     }
 
     modal.classList.add('show');
 }
 
-// Close modal when clicking outside
-window.addEventListener('click', (e) => {
-    const reportModal = document.getElementById('report-modal');
-    const infoModal = document.getElementById('info-modal');
-
-    if (e.target === reportModal) {
-        reportModal.classList.remove('show');
+function updateDate() {
+    const dateEl = document.getElementById('dashboard-date');
+    if (dateEl) {
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const date = new Date().toLocaleDateString('pt-BR', options);
+        dateEl.textContent = date;
     }
+}
+
+window.addEventListener('click', (e) => {
+    const infoModal = document.getElementById('info-modal');
     if (e.target === infoModal) {
         infoModal.classList.remove('show');
     }
 });
 
-// Keyboard support for accessibility
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeModal();
