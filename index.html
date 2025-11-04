@@ -103,6 +103,14 @@
                             </div>
                             <p class="indicator-description">Monitoramento e redução de emissões de GEE (ODS 13)</p>
                         </div>
+                        <!-- Indicador realocado da categoria Prosperidade para Ambiental -->
+                        <div class="indicator-card">
+                            <div class="indicator-header">
+                                <h4>Inovação Sustentável & Tecnologia Verde</h4>
+                                <span class="indicator-points">5 pts</span>
+                            </div>
+                            <p class="indicator-description">Investimentos em inovação e tecnologias verdes (ODS 9)</p>
+                        </div>
                     </div>
                 </div>
 
@@ -130,19 +138,7 @@
                             </div>
                             <p class="indicator-description">Condições dignas de trabalho e educação continuada (ODS 4 & 8)</p>
                         </div>
-                    </div>
-                </div>
-
-                <div class="indicator-category">
-                    <h3 class="category-title prosperidade">💼 Prosperidade (Econômico)</h3>
-                    <div class="indicators-grid">
-                        <div class="indicator-card">
-                            <div class="indicator-header">
-                                <h4>Inovação Sustentável & Tecnologia Verde</h4>
-                                <span class="indicator-points">5 pts</span>
-                            </div>
-                            <p class="indicator-description">Investimentos em inovação e tecnologias verdes (ODS 9)</p>
-                        </div>
+                        <!-- Indicadores realocados da categoria Prosperidade para Social -->
                         <div class="indicator-card">
                             <div class="indicator-header">
                                 <h4>Desenvolvimento Econômico & Cadeia Responsável</h4>
@@ -159,6 +155,10 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- A categoria Prosperidade foi incorporada às categorias
+                     Ambientais e Sociais. Os indicadores abaixo foram
+                     realocados de acordo com a análise ESG. -->
 
                 <div class="indicator-category">
                     <h3 class="category-title governanca">⚖️ Governança & Parcerias</h3>
@@ -380,10 +380,11 @@
 
                         <div class="categories-progress">
                             <h3>Progresso por Categoria</h3>
+                            <!-- Progresso por Categoria atualizado: Planeta 45 pts, Pessoas 40 pts, Governança 15 pts -->
                             <div class="category-progress-item">
                                 <div class="category-progress-header">
                                     <span>🌍 Planeta (Ambiental)</span>
-                                    <span id="cat-planeta">0 / 40</span>
+                                    <span id="cat-planeta">0 / 45</span>
                                 </div>
                                 <div class="progress-bar">
                                     <div class="progress-fill" id="cat-planeta-fill" style="width: 0%; background: #10b981;"></div>
@@ -392,19 +393,10 @@
                             <div class="category-progress-item">
                                 <div class="category-progress-header">
                                     <span>👥 Pessoas (Social)</span>
-                                    <span id="cat-pessoas">0 / 30</span>
+                                    <span id="cat-pessoas">0 / 40</span>
                                 </div>
                                 <div class="progress-bar">
                                     <div class="progress-fill" id="cat-pessoas-fill" style="width: 0%; background: #3b82f6;"></div>
-                                </div>
-                            </div>
-                            <div class="category-progress-item">
-                                <div class="category-progress-header">
-                                    <span>💼 Prosperidade (Econômico)</span>
-                                    <span id="cat-prosperidade">0 / 15</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" id="cat-prosperidade-fill" style="width: 0%; background: #0ea5e9;"></div>
                                 </div>
                             </div>
                             <div class="category-progress-item">
@@ -433,7 +425,7 @@
                                     <option value="">Todas as Categorias</option>
                                     <option value="Planeta">Planeta</option>
                                     <option value="Pessoas">Pessoas</option>
-                                    <option value="Prosperidade">Prosperidade</option>
+                                    <!-- Removida a opção Prosperidade pois os indicadores dessa categoria foram redistribuídos -->
                                     <option value="Governanca">Governança</option>
                                 </select>
                                 <select id="filter-status" onchange="filterIndicators()">
@@ -464,7 +456,7 @@
                                     <button class="btn btn-primary" onclick="generateReport('consolidado')">📊 Relatório Consolidado</button>
                                     <button class="btn btn-primary" onclick="generateReport('planeta')">🌍 Categoria Planeta</button>
                                     <button class="btn btn-primary" onclick="generateReport('pessoas')">👥 Categoria Pessoas</button>
-                                    <button class="btn btn-primary" onclick="generateReport('prosperidade')">💼 Categoria Prosperidade</button>
+                                    <!-- Botão de relatório da antiga categoria Prosperidade removido após redistribuição dos indicadores -->
                                     <button class="btn btn-primary" onclick="generateReport('governanca')">⚖️ Categoria Governança</button>
                                 </div>
                             </div>
