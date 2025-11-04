@@ -11,7 +11,7 @@
 <body>
     <a href="#main-content" class="skip-to-main">Ir para conteúdo principal</a>
 
-    <!-- Navigation Bar -->
+    
     <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-logo">
@@ -34,10 +34,10 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+    
     <main id="main-content">
 
-        <!-- Landing View -->
+        
         <div id="landing-view" class="view active">
             <section class="hero">
                 <div class="hero-content">
@@ -103,7 +103,7 @@
                             </div>
                             <p class="indicator-description">Monitoramento e redução de emissões de GEE (ODS 13)</p>
                         </div>
-                        <!-- Indicador realocado da categoria Prosperidade para Ambiental -->
+                        
                         <div class="indicator-card">
                             <div class="indicator-header">
                                 <h4>Inovação Sustentável & Tecnologia Verde</h4>
@@ -138,7 +138,7 @@
                             </div>
                             <p class="indicator-description">Condições dignas de trabalho e educação continuada (ODS 4 & 8)</p>
                         </div>
-                        <!-- Indicadores realocados da categoria Prosperidade para Social -->
+                        
                         <div class="indicator-card">
                             <div class="indicator-header">
                                 <h4>Desenvolvimento Econômico & Cadeia Responsável</h4>
@@ -156,9 +156,7 @@
                     </div>
                 </div>
 
-                <!-- A categoria Prosperidade foi incorporada às categorias
-                     Ambientais e Sociais. Os indicadores abaixo foram
-                     realocados de acordo com a análise ESG. -->
+                
 
                 <div class="indicator-category">
                     <h3 class="category-title governanca">⚖️ Governança & Parcerias</h3>
@@ -195,7 +193,7 @@
             </section>
         </div>
 
-        <!-- Authentication View -->
+        
         <div id="login-view" class="view">
             <div class="auth-container">
                 <div class="auth-form">
@@ -287,10 +285,9 @@
             </div>
         </div>
 
-        <!-- Dashboard View -->
+        
         <div id="dashboard-view" class="view">
             <div class="dashboard-container">
-                <!-- Sidebar -->
                 <div class="dashboard-sidebar">
                     <div class="sidebar-header">
                         <h2 style="color: var(--primary-color); margin: 0;">🌱 NCS 2030</h2>
@@ -324,7 +321,7 @@
                     <button class="btn btn-secondary" onclick="logout()" style="width: 100%; margin-top: 2rem;">Logout</button>
                 </div>
 
-                <!-- Main Dashboard Content -->
+                
                 <div class="dashboard-main">
                     <div class="dashboard-header">
                         <div>
@@ -336,7 +333,7 @@
                         </div>
                     </div>
 
-                    <!-- OVERVIEW TAB -->
+                    
                     <div id="overview-tab" class="dashboard-tab active">
                         <div class="overview-grid">
                             <div class="stats-card">
@@ -380,7 +377,7 @@
 
                         <div class="categories-progress">
                             <h3>Progresso por Categoria</h3>
-                            <!-- Progresso por Categoria atualizado: Planeta 45 pts, Pessoas 40 pts, Governança 15 pts -->
+                            
                             <div class="category-progress-item">
                                 <div class="category-progress-header">
                                     <span>🌍 Planeta (Ambiental)</span>
@@ -416,7 +413,7 @@
                         </div>
                     </div>
 
-                    <!-- INDICATORS TAB -->
+                    
                     <div id="indicators-tab" class="dashboard-tab">
                         <div class="tab-header">
                             <h2>Meus Indicadores</h2>
@@ -425,7 +422,7 @@
                                     <option value="">Todas as Categorias</option>
                                     <option value="Planeta">Planeta</option>
                                     <option value="Pessoas">Pessoas</option>
-                                    <!-- Removida a opção Prosperidade pois os indicadores dessa categoria foram redistribuídos -->
+                                    
                                     <option value="Governanca">Governança</option>
                                 </select>
                                 <select id="filter-status" onchange="filterIndicators()">
@@ -439,14 +436,14 @@
                         <div id="indicators-list" class="indicators-table-container"></div>
                     </div>
 
-                    <!-- EVIDENCE TAB -->
+                    
                     <div id="evidence-tab" class="dashboard-tab">
                         <h2>Evidências & Documentos</h2>
                         <p class="tab-description">Envie documentos, certificados e evidências para cada indicador. Não há limite de arquivos por indicador.</p>
                         <div id="evidence-list" class="evidence-list"></div>
                     </div>
 
-                    <!-- REPORTS TAB -->
+                    
                     <div id="reports-tab" class="dashboard-tab">
                         <h2>Relatórios</h2>
                         <div class="reports-container">
@@ -456,7 +453,7 @@
                                     <button class="btn btn-primary" onclick="generateReport('consolidado')">📊 Relatório Consolidado</button>
                                     <button class="btn btn-primary" onclick="generateReport('planeta')">🌍 Categoria Planeta</button>
                                     <button class="btn btn-primary" onclick="generateReport('pessoas')">👥 Categoria Pessoas</button>
-                                    <!-- Botão de relatório da antiga categoria Prosperidade removido após redistribuição dos indicadores -->
+                                    
                                     <button class="btn btn-primary" onclick="generateReport('governanca')">⚖️ Categoria Governança</button>
                                 </div>
                             </div>
@@ -464,13 +461,13 @@
                         </div>
                     </div>
 
-                    <!-- CERTIFICATIONS TAB -->
+                    
                     <div id="certifications-tab" class="dashboard-tab">
                         <h2>Certificações</h2>
                         <div id="certification-card" class="certification-display"></div>
                     </div>
 
-                    <!-- FEEDBACK TAB -->
+                    
                     <div id="feedback-tab" class="dashboard-tab">
                         <h2>Feedback & Comunicação</h2>
                         <div id="feedback-list" class="feedback-list"></div>
@@ -479,12 +476,12 @@
             </div>
         </div>
 
-        <!-- Directory View -->
+        
         <div id="directory-view" class="view">
             <div class="container">
                 <h1 style="text-align: center; margin-bottom: 1rem;">Diretório de Empresas Certificadas</h1>
                 <p class="directory-subtitle">Confira as empresas que já obtiveram o Selo NCS 2030</p>
-                <!-- Certification level legend -->
+                
                 <div class="level-legend" aria-label="Legenda dos níveis de certificação">
                     <div class="legend-item">
                         <span class="legend-color" style="background:#ef4444;"></span>
@@ -508,7 +505,7 @@
         </div>
     </main>
 
-    <!-- Modals -->
+    
     <div id="info-modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -516,7 +513,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    
     <footer class="footer">
         <div class="footer-content">
             <div>
