@@ -1,6 +1,4 @@
-/* =====================================
-   RESET & BASE STYLES
-   ===================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -48,9 +46,7 @@ body {
     top: 0;
 }
 
-/* =====================================
-   NAVBAR
-   ===================================== */
+
 .navbar {
     position: fixed;
     top: 0;
@@ -131,9 +127,7 @@ body {
     transition: all 0.3s;
 }
 
-/* =====================================
-   MAIN CONTENT
-   ===================================== */
+
 main {
     margin-top: 60px;
 }
@@ -158,9 +152,7 @@ main {
     padding: 2rem;
 }
 
-/* =====================================
-   HERO SECTION
-   ===================================== */
+
 .hero {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: var(--white);
@@ -192,9 +184,7 @@ main {
     flex-wrap: wrap;
 }
 
-/* =====================================
-   BUTTONS
-   ===================================== */
+
 .btn {
     padding: 0.75rem 1.5rem;
     border: none;
@@ -238,9 +228,7 @@ main {
     font-size: 1.1rem;
 }
 
-/* =====================================
-   HOW IT WORKS SECTION
-   ===================================== */
+
 .how-it-works {
     background: var(--light-bg);
     padding: 4rem 2rem;
@@ -300,9 +288,7 @@ main {
     color: #6b7280;
 }
 
-/* =====================================
-   INDICATORS SECTION
-   ===================================== */
+
 .indicators {
     padding: 4rem 2rem;
     max-width: 1200px;
@@ -385,9 +371,7 @@ main {
     margin-bottom: 1rem;
 }
 
-/* =====================================
-   CTA SECTION
-   ===================================== */
+
 .cta-section {
     background: var(--primary-color);
     color: var(--white);
@@ -401,9 +385,7 @@ main {
     opacity: 0.95;
 }
 
-/* =====================================
-   AUTHENTICATION
-   ===================================== */
+
 .auth-container {
     max-width: 500px;
     margin: 4rem auto;
@@ -538,9 +520,7 @@ main {
     outline-offset: 2px;
 }
 
-/* =====================================
-   DASHBOARD LAYOUT
-   ===================================== */
+
 .dashboard-container {
     display: flex;
     min-height: calc(100vh - 60px);
@@ -666,11 +646,9 @@ main {
     display: block;
 }
 
-/* =====================================
-   DASHBOARD TABS CONTENT
-   ===================================== */
 
-/* Overview Tab */
+
+
 .overview-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -815,7 +793,7 @@ main {
     color: #6b7280;
 }
 
-/* Indicators Tab */
+
 .tab-header {
     background: var(--white);
     padding: 1.5rem;
@@ -927,7 +905,7 @@ main {
     min-height: auto;
 }
 
-/* Evidence Tab */
+
 .tab-description {
     background: var(--white);
     padding: 1.5rem;
@@ -1017,7 +995,7 @@ main {
     gap: 0.5rem;
 }
 
-/* Reports Tab */
+
 .reports-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1074,7 +1052,7 @@ main {
     color: #6b7280;
 }
 
-/* Certifications Tab */
+
 .certification-display {
     background: var(--white);
     padding: 2rem;
@@ -1161,7 +1139,7 @@ main {
     font-weight: 500;
 }
 
-/* Feedback Tab */
+
 .feedback-list {
     display: flex;
     flex-direction: column;
@@ -1228,7 +1206,7 @@ main {
     color: #9ca3af;
 }
 
-/* Directory */
+
 .directory-subtitle {
     color: #6b7280;
     margin-bottom: 2rem;
@@ -1307,7 +1285,7 @@ main {
     font-size: 0.9rem;
 }
 
-/* Legend for certification levels */
+
 .level-legend {
     display: flex;
     flex-wrap: wrap;
@@ -1338,7 +1316,7 @@ main {
     color: #6b7280;
 }
 
-/* Modal */
+
 .modal {
     display: none;
     position: fixed;
@@ -1387,7 +1365,7 @@ main {
     margin-bottom: 1.5rem;
 }
 
-/* Footer */
+
 .footer {
     background: var(--dark-text);
     color: var(--white);
@@ -1431,9 +1409,7 @@ main {
     color: #9ca3af;
 }
 
-/* =====================================
-   RESPONSIVE DESIGN
-   ===================================== */
+
 @media (max-width: 1024px) {
     .dashboard-container {
         flex-direction: column;
@@ -1626,7 +1602,7 @@ main {
     }
 }
 
-/* Accessibility */
+
 @media (prefers-reduced-motion: reduce) {
     * {
         animation: none !important;
