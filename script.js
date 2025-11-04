@@ -7,7 +7,7 @@ const appState = {
     user: null,
     progress: 0,
     indicators: [
-        // Planeta (Ambiental) – 40 pontos
+        // Planeta (Ambiental) – 45 pontos (atualizado após redistribuição dos indicadores)
         {
             id: 1,
             name: 'Gestão de Resíduos & Economia Circular',
@@ -32,7 +32,21 @@ const appState = {
             points: 14,
             status: 'Pendente'
         },
-        // Pessoas (Social) – 30 pontos
+ // Atualização da distribuição de indicadores de Prosperidade:
+        // O indicador "Inovação Sustentável & Tecnologia Verde" foi realocado para a categoria
+        // Planeta (Ambiental), uma vez que tecnologias verdes e inovação têm foco principal
+        // na redução de impactos ambientais. Os indicadores de desenvolvimento econômico
+        // e de inclusão digital foram realocados para Pessoas (Social) porque tratam de
+        // crescimento local, cadeia de suprimentos responsável e inclusão digital.
+        {
+            id: 7,
+            name: 'Inovação Sustentável & Tecnologia Verde',
+            category: 'Planeta',
+            categoryLabel: 'Ambiental (E)',
+            points: 5,
+            status: 'Pendente'
+        },
+        // Pessoas (Social) – 40 pontos (atualizado após redistribuição dos indicadores)
         {
             id: 4,
             name: 'Saúde, Segurança & Bem-estar',
@@ -57,28 +71,19 @@ const appState = {
             points: 10,
             status: 'Pendente'
         },
-        // Prosperidade (Econômico) – 15 pontos
-        {
-            id: 7,
-            name: 'Inovação Sustentável & Tecnologia Verde',
-            category: 'Prosperidade',
-            categoryLabel: 'Econômico (P)',
-            points: 5,
-            status: 'Pendente'
-        },
         {
             id: 8,
             name: 'Desenvolvimento Econômico & Cadeia Responsável',
-            category: 'Prosperidade',
-            categoryLabel: 'Econômico (P)',
+            category: 'Pessoas',
+            categoryLabel: 'Social (S)',
             points: 5,
             status: 'Pendente'
         },
         {
             id: 9,
             name: 'Inclusão Digital & Acessibilidade Tecnológica',
-            category: 'Prosperidade',
-            categoryLabel: 'Econômico (P)',
+            category: 'Pessoas',
+            categoryLabel: 'Social (S)',
             points: 5,
             status: 'Pendente'
         },
@@ -439,10 +444,13 @@ function renderProgress() {
     document.getElementById('stat-pontos').textContent = earnedPoints;
 
     // Category progress
+    // Atualização da distribuição de pontos por categoria:
+    // A categoria Prosperidade foi extinta e seus indicadores foram distribuídos entre
+    // Planeta e Pessoas. Planeta soma agora 45 pontos (antes 40) e Pessoas soma
+    // 40 pontos (antes 30). Governança permanece com 15 pontos.
     const categories = {
-        'Planeta': { earned: 0, total: 40 },
-        'Pessoas': { earned: 0, total: 30 },
-        'Prosperidade': { earned: 0, total: 15 },
+        'Planeta': { earned: 0, total: 45 },
+        'Pessoas': { earned: 0, total: 40 },
         'Governanca': { earned: 0, total: 15 }
     };
 
@@ -492,10 +500,10 @@ function renderIndicatorsList() {
     const tbody = document.createElement('tbody');
     appState.indicators.forEach(ind => {
         const tr = document.createElement('tr');
+        // Mapeamento de cores para badges sem a categoria Prosperidade (extinta)
         const categoryColors = {
             'Planeta': 'badge-planeta',
             'Pessoas': 'badge-pessoas',
-            'Prosperidade': 'badge-prosperidade',
             'Governanca': 'badge-governanca'
         };
 
@@ -566,10 +574,10 @@ function filterIndicators() {
     const tbody = document.createElement('tbody');
     filtered.forEach(ind => {
         const tr = document.createElement('tr');
+        // Mapeamento de cores para badges sem a categoria Prosperidade (extinta)
         const categoryColors = {
             'Planeta': 'badge-planeta',
             'Pessoas': 'badge-pessoas',
-            'Prosperidade': 'badge-prosperidade',
             'Governanca': 'badge-governanca'
         };
 
