@@ -1,13 +1,11 @@
-// =====================================
-// DATA STORAGE & STATE MANAGEMENT
-// =====================================
+
 const appState = {
     currentView: 'landing',
     currentDashboardTab: 'overview',
     user: null,
     progress: 0,
     indicators: [
-        // Planeta (Ambiental) – 45 pontos (atualizado após redistribuição dos indicadores)
+        
         {
             id: 1,
             name: 'Gestão de Resíduos & Economia Circular',
@@ -32,12 +30,7 @@ const appState = {
             points: 14,
             status: 'Pendente'
         },
- // Atualização da distribuição de indicadores de Prosperidade:
-        // O indicador "Inovação Sustentável & Tecnologia Verde" foi realocado para a categoria
-        // Planeta (Ambiental), uma vez que tecnologias verdes e inovação têm foco principal
-        // na redução de impactos ambientais. Os indicadores de desenvolvimento econômico
-        // e de inclusão digital foram realocados para Pessoas (Social) porque tratam de
-        // crescimento local, cadeia de suprimentos responsável e inclusão digital.
+        
         {
             id: 7,
             name: 'Inovação Sustentável & Tecnologia Verde',
@@ -46,7 +39,7 @@ const appState = {
             points: 5,
             status: 'Pendente'
         },
-        // Pessoas (Social) – 40 pontos (atualizado após redistribuição dos indicadores)
+        
         {
             id: 4,
             name: 'Saúde, Segurança & Bem-estar',
@@ -87,7 +80,7 @@ const appState = {
             points: 5,
             status: 'Pendente'
         },
-        // Governança & Parcerias – 15 pontos
+        
         {
             id: 10,
             name: 'Ética, Integridade & Anticorrupção',
@@ -156,9 +149,7 @@ const appState = {
     ]
 };
 
-// =====================================
-// INITIALIZATION
-// =====================================
+        
 document.addEventListener('DOMContentLoaded', () => {
     loadUserFromStorage();
     initializeEventListeners();
@@ -167,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDate();
 });
 
-// Initialize event listeners
+        
 function initializeEventListeners() {
     const hamburger = document.getElementById('hamburger-menu');
     const navMenu = document.getElementById('nav-menu');
@@ -204,9 +195,7 @@ function initializeEventListeners() {
     });
 }
 
-// =====================================
-// VIEW MANAGEMENT
-// =====================================
+        
 function showView(viewName) {
     document.querySelectorAll('.view').forEach(view => {
         view.classList.remove('active');
@@ -258,9 +247,7 @@ function switchDashboardTab(tabName) {
     }
 }
 
-// =====================================
-// AUTHENTICATION
-// =====================================
+        
 function handleLogin(e) {
     e.preventDefault();
     const email = document.getElementById('login-email').value;
@@ -393,9 +380,7 @@ function updateNavigation() {
     }
 }
 
-// =====================================
-// DASHBOARD UPDATE
-// =====================================
+        
 function updateDashboard() {
     calculateProgress();
     renderProgress();
@@ -438,16 +423,12 @@ function renderProgress() {
 
     document.getElementById('progress-level').textContent = level;
 
-    // Stats
+    
     document.getElementById('stat-conformes').textContent = conformes;
     document.getElementById('stat-pendentes').textContent = pendentes;
     document.getElementById('stat-pontos').textContent = earnedPoints;
 
-    // Category progress
-    // Atualização da distribuição de pontos por categoria:
-    // A categoria Prosperidade foi extinta e seus indicadores foram distribuídos entre
-    // Planeta e Pessoas. Planeta soma agora 45 pontos (antes 40) e Pessoas soma
-    // 40 pontos (antes 30). Governança permanece com 15 pontos.
+    
     const categories = {
         'Planeta': { earned: 0, total: 45 },
         'Pessoas': { earned: 0, total: 40 },
@@ -500,7 +481,7 @@ function renderIndicatorsList() {
     const tbody = document.createElement('tbody');
     appState.indicators.forEach(ind => {
         const tr = document.createElement('tr');
-        // Mapeamento de cores para badges sem a categoria Prosperidade (extinta)
+        
         const categoryColors = {
             'Planeta': 'badge-planeta',
             'Pessoas': 'badge-pessoas',
@@ -574,7 +555,7 @@ function filterIndicators() {
     const tbody = document.createElement('tbody');
     filtered.forEach(ind => {
         const tr = document.createElement('tr');
-        // Mapeamento de cores para badges sem a categoria Prosperidade (extinta)
+        
         const categoryColors = {
             'Planeta': 'badge-planeta',
             'Pessoas': 'badge-pessoas',
@@ -627,9 +608,7 @@ function renderActivitiesFeed() {
     });
 }
 
-// =====================================
-// EVIDENCE
-// =====================================
+        
 function renderEvidenceList() {
     const container = document.getElementById('evidence-list');
     if (!container) return;
@@ -705,9 +684,7 @@ function generateHash() {
     return 'SHA-' + Math.random().toString(36).substr(2, 12).toUpperCase();
 }
 
-// =====================================
-// REPORTS
-// =====================================
+        
 function generateReport(type) {
     const report = {
         id: appState.reports.length + 1,
@@ -749,9 +726,7 @@ function renderReports() {
     container.appendChild(reportsList);
 }
 
-// =====================================
-// CERTIFICATIONS
-// =====================================
+        
 function renderCertificationCard() {
     const container = document.getElementById('certification-card');
     if (!container) return;
@@ -823,9 +798,7 @@ function renderCertificationCard() {
     `;
 }
 
-// =====================================
-// FEEDBACK
-// =====================================
+        
 function renderFeedbackList() {
     const container = document.getElementById('feedback-list');
     if (!container) return;
@@ -857,9 +830,7 @@ function renderFeedbackList() {
     });
 }
 
-// =====================================
-// COMPANIES DIRECTORY
-// =====================================
+        
 function renderCompaniesDirectory() {
     const grid = document.getElementById('companies-grid');
     if (!grid) return;
@@ -869,10 +840,9 @@ function renderCompaniesDirectory() {
         const card = document.createElement('div');
         card.className = 'company-card';
 
-        // Determine level and associated emoji/color based on score ranges.  
-        // 0‑39 → Não Conforme; 40‑69 → Conformidade; 70‑89 → Avançado; 90‑100 → Excelência.
+        
         let level = 'Não Conforme';
-        let color = '#ef4444'; // red for non‑conformity
+        let color = '#ef4444';
         let levelEmoji = '⚠️';
 
         const score = Number(company.score);
@@ -897,7 +867,7 @@ function renderCompaniesDirectory() {
             <h3>${company.name}</h3>
             <div class="company-cnpj">${company.cnpj}</div>
             <div class="company-sector">${company.sector}</div>
-            <!-- Pontuação omitida para garantir a privacidade. O nível é calculado a partir da pontuação interna. -->
+            
             <div class="company-level" style="color: ${color};">${level}</div>
             <div class="company-date">Certificado em ${company.date}</div>
         `;
@@ -906,9 +876,7 @@ function renderCompaniesDirectory() {
     });
 }
 
-// =====================================
-// UTILITY FUNCTIONS
-// =====================================
+        
 function switchAuthTab(tab) {
     const loginForm = document.getElementById('login-form');
     const registerForm = document.getElementById('register-form');
