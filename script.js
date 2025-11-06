@@ -123,30 +123,58 @@ const appState = {
             name: 'EcoTech Indústria Ltda.',
             cnpj: '12.345.678/0001-90',
             sector: 'Tecnologia',
+            size: 'Médio',
+            city: 'Curitiba',
             score: 92,
-            level: 'Excelência',
-            date: 'Janeiro 2025',
-            color: '#eab308'
+            founder: true,
+            certDate: '2025-01-15',
+            planPublicLink: '#'
         },
         {
             name: 'Sustenta Alimentos S.A.',
             cnpj: '98.765.432/0001-11',
             sector: 'Alimentício',
+            size: 'Grande',
+            city: 'Londrina',
             score: 87,
-            level: 'Avançado',
-            date: 'Dezembro 2024',
-            color: '#3b82f6'
+            founder: false,
+            certDate: '2024-12-10',
+            planPublicLink: '#'
         },
         {
             name: 'Verde Energia Renovável',
             cnpj: '45.678.901/0001-23',
             sector: 'Energia',
+            size: 'Pequeno',
+            city: 'Maringá',
             score: 78,
-            level: 'Conformidade',
-            date: 'Novembro 2024',
-            color: '#f59e0b'
+            founder: false,
+            certDate: '2024-11-05',
+            planPublicLink: '#'
         }
-    ]
+    ],
+
+    // Action plans for improvement cycles
+    actionPlans: [
+        { id: 1, quarter: '1º trimestre', objective: 'Implementar política de gestão de resíduos', responsible: 'Equipe ESG', status: 'Em andamento' },
+        { id: 2, quarter: '2º trimestre', objective: 'Estabelecer canal de denúncias', responsible: 'Compliance', status: 'Pendente' }
+    ],
+    // Audit logs capturing what happened and when
+    auditLogs: [
+        { id: 1, date: new Date().toISOString(), actor: 'Auditor', action: 'Validou evidência do Indicador 1' },
+        { id: 2, date: new Date().toISOString(), actor: 'Sistema', action: 'Gerou hash de documento enviado' }
+    ],
+    // AI suggestions to help orient the auditor
+    aiSuggestions: [
+        { id: 1, date: new Date().toISOString(), message: 'Sugestão: revisar evidência do indicador de diversidade', status: null },
+        { id: 2, date: new Date().toISOString(), message: 'Sugestão: anexar plano de ação para uso de energia renovável', status: null }
+    ],
+    // Licence and billing information
+    license: {
+        plan: 'Pacote A',
+        renewalDate: '2025-12-31',
+        status: 'Ativa'
+    }
 };
 
         
@@ -193,6 +221,14 @@ function initializeEventListeners() {
             closeModal();
         }
     });
+
+    // Directory filter change listeners
+    const sectorFilter = document.getElementById('filter-sector');
+    const sizeFilter   = document.getElementById('filter-size');
+    const cityFilter   = document.getElementById('filter-city');
+    if (sectorFilter) sectorFilter.addEventListener('change', applyFilters);
+    if (sizeFilter)   sizeFilter.addEventListener('change', applyFilters);
+    if (cityFilter)   cityFilter.addEventListener('input', applyFilters);
 }
 
         
@@ -244,6 +280,12 @@ function switchDashboardTab(tabName) {
         renderCertificationCard();
     } else if (tabName === 'reports') {
         renderReports();
+    } else if (tabName === 'plans') {
+        renderPlansList();
+    } else if (tabName === 'audit') {
+        renderAuditTimeline();
+    } else if (tabName === 'ai') {
+        renderAISuggestions();
     }
 }
 
@@ -387,6 +429,11 @@ function updateDashboard() {
     renderIndicatorsList();
     renderActivitiesFeed();
     updateDate();
+    // update other dashboard components
+    renderPlansList();
+    renderAuditTimeline();
+    renderAISuggestions();
+    updateFinanceCard();
 }
 
 function calculateProgress() {
@@ -625,7 +672,8 @@ function renderEvidenceList() {
                 <div class="file-item">
                     <div class="file-info">
                         <span class="file-name">📄 ${file.name}</span>
-                        <span class="file-meta">${file.size} KB • ${new Date(file.date).toLocaleDateString('pt-BR')}</span>
+                        <span class="file-meta">${file.size} KB • ${new Date(file.date).toLocaleDateString('pt-BR')} • Hash: ${file.hash}</span>
+                        <span class="file-meta">Status: ${file.status || 'Pendente'}</span>
                     </div>
                     <div class="file-actions">
                         <button class="btn btn-secondary btn-small" onclick="removeFile(${ind.id}, '${file.name}')">🗑️ Deletar</button>
@@ -665,7 +713,8 @@ function uploadFile(indicatorId, event) {
             name: file.name,
             size: (file.size / 1024).toFixed(2),
             date: new Date().toISOString(),
-            hash: generateHash()
+            hash: generateHash(),
+            status: 'Pendente'
         });
 
         renderEvidenceList();
@@ -830,50 +879,184 @@ function renderFeedbackList() {
     });
 }
 
+// Render list of action plans in the Plans tab
+function renderPlansList() {
+    const container = document.getElementById('plans-list');
+    if (!container) return;
+    container.innerHTML = '';
+    if (!appState.actionPlans || appState.actionPlans.length === 0) {
+        container.innerHTML = '<p style="color: #6b7280;">Nenhum plano cadastrado.</p>';
+        return;
+    }
+    appState.actionPlans.forEach(plan => {
+        const item = document.createElement('div');
+        item.className = 'plan-item';
+        item.innerHTML = `
+            <h4>${plan.objective}</h4>
+            <div class="plan-meta">Ciclo: ${plan.quarter} • Responsável: ${plan.responsible} • Status: ${plan.status}</div>
+        `;
+        container.appendChild(item);
+    });
+}
+
+// Render audit timeline logs in the Audit tab
+function renderAuditTimeline() {
+    const container = document.getElementById('audit-timeline');
+    if (!container) return;
+    container.innerHTML = '';
+    if (!appState.auditLogs || appState.auditLogs.length === 0) {
+        container.innerHTML = '<p style="color: #6b7280;">Nenhum log de auditoria.</p>';
+        return;
+    }
+    appState.auditLogs.forEach(log => {
+        const item = document.createElement('div');
+        item.className = 'audit-item';
+        item.innerHTML = `
+            <h4>${log.action}</h4>
+            <div class="audit-meta">${new Date(log.date).toLocaleDateString('pt-BR')} às ${new Date(log.date).toLocaleTimeString('pt-BR')} • Autor: ${log.actor}</div>
+        `;
+        container.appendChild(item);
+    });
+}
+
+// Render AI suggestions and allow acceptance or rejection
+function renderAISuggestions() {
+    const container = document.getElementById('ai-suggestions');
+    if (!container) return;
+    container.innerHTML = '';
+    if (!appState.aiSuggestions || appState.aiSuggestions.length === 0) {
+        container.innerHTML = '<p style="color: #6b7280;">Nenhuma sugestão da IA.</p>';
+        return;
+    }
+    appState.aiSuggestions.forEach(sug => {
+        const item = document.createElement('div');
+        item.className = 'ai-item';
+        let statusText;
+        if (sug.status === null) statusText = 'Pendente';
+        else if (sug.status) statusText = 'Aceito';
+        else statusText = 'Rejeitado';
+        item.innerHTML = `
+            <h4>${sug.message}</h4>
+            <div class="ai-meta">${new Date(sug.date).toLocaleDateString('pt-BR')} às ${new Date(sug.date).toLocaleTimeString('pt-BR')} • Status: ${statusText}</div>
+            <div class="ai-actions">
+                <button class="btn btn-primary btn-small" onclick="acceptSuggestion(${sug.id})">Aceitar</button>
+                <button class="btn btn-secondary btn-small" onclick="rejectSuggestion(${sug.id})">Rejeitar</button>
+            </div>
+        `;
+        container.appendChild(item);
+    });
+}
+
+function acceptSuggestion(id) {
+    const sug = appState.aiSuggestions.find(s => s.id === id);
+    if (sug) {
+        sug.status = true;
+        renderAISuggestions();
+    }
+}
+
+function rejectSuggestion(id) {
+    const sug = appState.aiSuggestions.find(s => s.id === id);
+    if (sug) {
+        sug.status = false;
+        renderAISuggestions();
+    }
+}
+
+// Update finance card with license info
+function updateFinanceCard() {
+    const planEl = document.getElementById('license-plan');
+    const expiryEl = document.getElementById('license-expiry');
+    if (!planEl || !expiryEl) return;
+    const license = appState.license;
+    if (license) {
+        planEl.textContent = `${license.plan} (${license.status})`;
+        const date = new Date(license.renewalDate);
+        expiryEl.textContent = `Válido até ${formatDate(date.toISOString())}`;
+    }
+}
+
         
-function renderCompaniesDirectory() {
+// Format date to "Mês Ano" in Portuguese
+function formatDate(dateStr) {
+    const meses = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return dateStr;
+    return `${meses[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+// Determine level, color and emoji based on score
+function computeLevel(score) {
+    let level = 'Não Conforme';
+    let color = '#ef4444';
+    let emoji = '⚠️';
+    const s = Number(score);
+    if (s >= 90) {
+        level = 'Excelência';
+        color = '#eab308';
+        emoji = '⭐';
+    } else if (s >= 70) {
+        level = 'Avançado';
+        color = '#3b82f6';
+        emoji = '🏅';
+    } else if (s >= 40) {
+        level = 'Conformidade';
+        color = '#f59e0b';
+        emoji = '✓';
+    }
+    return { level, color, emoji };
+}
+
+// Render the directory of companies, optionally using a filtered list
+function renderCompaniesDirectory(list = appState.certifiedCompanies) {
     const grid = document.getElementById('companies-grid');
     if (!grid) return;
-
     grid.innerHTML = '';
-    appState.certifiedCompanies.forEach(company => {
+    list.forEach(company => {
+        const { level, color, emoji } = computeLevel(company.score);
+        // compute validity date (one year after certification)
+        const certDate = new Date(company.certDate);
+        const validity = new Date(certDate);
+        validity.setFullYear(validity.getFullYear() + 1);
         const card = document.createElement('div');
         card.className = 'company-card';
-
-        
-        let level = 'Não Conforme';
-        let color = '#ef4444';
-        let levelEmoji = '⚠️';
-
-        const score = Number(company.score);
-        if (score >= 90) {
-            level = 'Excelência';
-            color = '#eab308';
-            levelEmoji = '⭐';
-        } else if (score >= 70) {
-            level = 'Avançado';
-            color = '#3b82f6';
-            levelEmoji = '🏅';
-        } else if (score >= 40) {
-            level = 'Conformidade';
-            color = '#f59e0b';
-            levelEmoji = '✓';
-        }
-
         card.innerHTML = `
-            <div class="certification-seal" style="background: ${color};">
-                ${levelEmoji}
-            </div>
+            <div class="certification-seal" style="background: ${color};">${emoji}</div>
             <h3>${company.name}</h3>
             <div class="company-cnpj">${company.cnpj}</div>
-            <div class="company-sector">${company.sector}</div>
-            
+            <div class="company-info">${company.sector} • ${company.size} • ${company.city}</div>
+            ${company.founder ? '<div class="founder-badge">Lote Fundadores</div>' : ''}
             <div class="company-level" style="color: ${color};">${level}</div>
-            <div class="company-date">Certificado em ${company.date}</div>
+            <div class="company-date">Certificado em ${formatDate(company.certDate)}</div>
+            <div class="company-valid">Válido até ${formatDate(validity.toISOString())}</div>
+            <div><a href="${company.planPublicLink}" target="_blank" class="company-plan-link">Plano de Compromisso</a></div>
         `;
-
         grid.appendChild(card);
     });
+}
+
+// Apply selected filters to the company directory
+function applyFilters() {
+    const sector = document.getElementById('filter-sector')?.value || '';
+    const size   = document.getElementById('filter-size')?.value || '';
+    const city   = (document.getElementById('filter-city')?.value || '').toLowerCase();
+    const filtered = appState.certifiedCompanies.filter(c => {
+        return (sector === '' || c.sector === sector) &&
+               (size === '' || c.size === size) &&
+               (city === '' || c.city.toLowerCase().includes(city));
+    });
+    renderCompaniesDirectory(filtered);
+}
+
+// Reset all filters to default
+function resetFilters() {
+    const sectorEl = document.getElementById('filter-sector');
+    const sizeEl   = document.getElementById('filter-size');
+    const cityEl   = document.getElementById('filter-city');
+    if (sectorEl) sectorEl.value = '';
+    if (sizeEl)   sizeEl.value = '';
+    if (cityEl)   cityEl.value = '';
+    renderCompaniesDirectory();
 }
 
         
