@@ -1285,6 +1285,88 @@ main {
     font-size: 0.9rem;
 }
 
+/* Directory filter controls */
+.directory-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+.directory-filters label {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #374151;
+}
+.directory-filters select,
+.directory-filters input[type="text"] {
+    margin-left: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+.directory-filters button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+}
+
+/* Additional company card fields */
+.company-info {
+    color: #6b7280;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+.company-valid {
+    color: #6b7280;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+.company-plan-link {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+.founder-badge {
+    display: inline-block;
+    background: #eab308;
+    color: #ffffff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Plans, audit and AI lists */
+.plans-list, .audit-timeline, .ai-suggestions {
+    margin-top: 1rem;
+}
+.plan-item, .audit-item, .ai-item {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+}
+.plan-item h4, .audit-item h4, .ai-item h4 {
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
+.plan-meta, .audit-meta, .ai-meta {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+.ai-actions {
+    margin-top: 0.5rem;
+}
+.ai-actions button {
+    margin-right: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+}
+
 
 .level-legend {
     display: flex;
