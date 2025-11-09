@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NCS 2030 - Selo de Conformidade ESG alinhado aos ODS">
-    <meta name="theme-color" content="#3b82f6">
-    <title>NCS 2030 - Referencial de Certificação Sustentável</title>
+    <!--
+        Metadados atualizados para refletir o novo posicionamento do NCS.
+        Agora trata‑se de um programa anual de avaliação ESG–ODS voltado a micro e pequenas empresas,
+        que emite um parecer de conformidade e concede um selo em quatro níveis.
+    -->
+    <!--
+        Atualize os metadados para refletir a nova identidade institucional.
+        Agora tratamos do Selo NCS – Governança & Impacto, um programa anual
+        de avaliação ESG e ODS focado em micro e pequenas empresas.
+    -->
+    <meta name="description" content="NCS – Governança e Impacto – Programa anual de avaliação ESG e ODS para micro e pequenas empresas">
+    <!-- Defina a cor do tema para tons de verde que transmitem sustentabilidade -->
+    <meta name="theme-color" content="#2c7a57">
+    <title>NCS – Governança e Impacto – Programa Anual de Avaliação ESG e ODS</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,7 +26,8 @@
     <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-logo">
-                <h1>🌱 NCS 2030</h1>
+                <!-- Novo logotipo: mantenha o ícone de broto e atualize a marca para o novo selo -->
+                <h1>🌱 NCS</h1>
             </div>
             <button id="hamburger-menu" class="hamburger" aria-label="Menu">
                 <span></span>
@@ -26,7 +38,9 @@
                 <li><a href="#" onclick="showView('landing')">Início</a></li>
                 <li><a href="#" onclick="scrollToSection('how-it-works')">Como Funciona</a></li>
                 <li><a href="#" onclick="scrollToSection('indicators')">Indicadores</a></li>
-                <li><a href="#" onclick="showView('directory')">Certificadas</a></li>
+                <!-- Guia adicional para os Planos de precificação -->
+                <li><a href="#" onclick="scrollToSection('pricing')">Planos</a></li>
+                <li><a href="#" onclick="showView('directory')">Empresas com Selo</a></li>
                 <li id="nav-dashboard-link" style="display:none;"><a href="#" onclick="showView('dashboard')">Dashboard</a></li>
                 <li id="nav-logout-link" style="display:none;"><button class="btn-login" onclick="logout()" style="padding:0.5rem 1rem;">Sair</button></li>
                 <li id="nav-auth-link"><button class="btn-login" onclick="showView('login')">Entrar</button></li>
@@ -41,8 +55,9 @@
         <div id="landing-view" class="view active">
             <section class="hero">
                 <div class="hero-content">
-                    <h1 class="hero-title">Referencial NCS 2030</h1>
-                    <p class="hero-subtitle">Selo de Conformidade ESG alinhado aos Objetivos de Desenvolvimento Sustentável</p>
+                    <!-- Título e subtítulo atualizados para refletir o programa anual de avaliação e o novo selo -->
+                    <h1 class="hero-title">NCS – Governança &amp; Impacto</h1>
+                    <p class="hero-subtitle">Programa anual de avaliação ESG e ODS para micro e pequenas empresas</p>
                     <div class="hero-ctas">
                         <button class="btn btn-primary btn-large" onclick="showView('login')">Começar Agora</button>
                         <button class="btn btn-secondary btn-large" onclick="scrollToSection('how-it-works')">Saiba Mais</button>
@@ -70,8 +85,31 @@
                     </div>
                     <div class="step-card">
                         <div class="step-number">4</div>
-                        <h3>Certificação</h3>
-                        <p>Receba seu certificado ao atingir o nível mínimo de conformidade</p>
+                        <h3>Parecer &amp; Selo</h3>
+                        <p>Receba um parecer de conformidade e o selo correspondente ao nível alcançado</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Value proposition section highlighting benefits for micro e pequenas empresas -->
+            <section id="value-proposition" class="value-section">
+                <h2>Por que Participar?</h2>
+                <div class="value-cards">
+                    <div class="value-card">
+                        <h3>Marketing de Confiança</h3>
+                        <p>Demonstre aos clientes, investidores e parceiros que sua empresa integra boas práticas ESG &amp; ODS, fortalecendo sua reputação e reduzindo riscos de greenwashing.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>Vendas &amp; Cadeias</h3>
+                        <p>Organize evidências de conformidade e atenda a critérios em licitações, compras públicas e cadeias de fornecimento B2B/B2G, abrindo portas para novos mercados.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>Acesso a Crédito</h3>
+                        <p>Transforme práticas socioambientais em argumentos concretos para melhorar o relacionamento com bancos e reduzir custos de financiamento.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>Melhoria Contínua</h3>
+                        <p>Receba análises, planos de ação e recomendações orientadas por IA para evoluir de nível a cada ciclo anual de avaliação.</p>
                     </div>
                 </div>
             </section>
@@ -186,136 +224,231 @@
                 </div>
             </section>
 
-            <!-- Governance & LGPD section -->
-            <section id="governance" class="info-section governance-section">
-                <h2>Governança de Dados &amp; LGPD</h2>
-                <p>O NCS 2030 foi projetado com privacidade e segurança em mente. Nomeamos um
-                    encarregado de proteção de dados (DPO), mantemos um registro de operações de
-                    tratamento (RoPA) e adotamos políticas de retenção e descarte de dados. Também
-                    prevemos testes de intrusão independentes e planos de resposta a incidentes no mês 6
-                    para garantir conformidade com a LGPD.</p>
-            </section>
+            <!-- Methodology & normative base section -->
+            <section id="methodology" class="methodology-section">
+                <h2>Metodologia&nbsp;&amp;&nbsp;Base&nbsp;Normativa</h2>
+                <!--
+                    Substituímos o parágrafo explicativo por uma lista sintética que
+                    destaca as principais referências normativas, a estrutura de
+                    maturidade e o uso das pontuações. Isso facilita a compreensão
+                    imediata do visitante e complementa a tabela de indicadores a seguir.
+                -->
+                <ul class="bullet-list">
+                    <li>Matriz ESG–ODS integrada a padrões globais: GRI, ISSB/IFRS&nbsp;S1‑S2, SASB, GHG&nbsp;Protocol, ABNT&nbsp;NBR&nbsp;16001, ISO&nbsp;26000 e LGPD.</li>
+                    <li>Avaliação de cada indicador em quatro estágios de maturidade (A–D: Documentado, Implementado, Monitorado, Melhorado).</li>
+                    <li>Resultado público define o nível do selo; pontuações detalhadas permanecem internas para orientar planos e negociações.</li>
+                </ul>
 
-            <!-- Transparency & continuous improvement section -->
-            <section id="transparency" class="info-section transparency-section">
-                <h2>Transparência e Melhoria Contínua</h2>
-                <p>Apenas o nível do selo é divulgado; a nota detalhada permanece interna para
-                    fomentar um ciclo de melhoria constante. As organizações acompanham planos de
-                    ação trimestrais e se recertificam anualmente, evoluindo do status de
-                    “Não Conforme” à “Excelência” com suporte técnico.</p>
-            </section>
-
-            <!-- MVP roadmap section -->
-            <section id="roadmap" class="info-section roadmap-section">
-                <h2>Cronograma do MVP</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-month">M1</div>
-                        <div class="timeline-text">Preparação: domínio, ambiente em nuvem,
-                            repositórios e Sprint 0 de design.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-month">M2</div>
-                        <div class="timeline-text">Chassi: esqueleto do site e da API, matriz ESG‑ODS e
-                            IA básica para onboarding.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-month">M3</div>
-                        <div class="timeline-text">Núcleo: funcionalidades principais, painéis e piloto
-                            técnico.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-month">M4</div>
-                        <div class="timeline-text">Piloto fechado: ajustes de usabilidade, trilha de
-                            auditoria e relatórios executivos.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-month">M5</div>
-                        <div class="timeline-text">Endurecimento: reforço de proteções e revisão LGPD.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-month">M6</div>
-                        <div class="timeline-text">Pentest e expansão: validação independente e
-                            preparação para escala.</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Pricing & plans section -->
-            <section id="pricing" class="info-section pricing-section">
-                <h2>Planos e Preços</h2>
-                <p>O onboarding técnico é obrigatório para habilitar a certificação e inclui
-                    verificação inicial ESG‑ODS e configuração de rubricas. Em seguida, escolha um
-                    dos três pacotes anuais para acompanhar seu progresso.</p>
-                <div class="pricing-table-wrapper">
-                    <table class="pricing-table">
+                <!-- Tabela resumida com os indicadores, suas fontes normativas e os ODS associados -->
+                <div class="indicator-summary">
+                    <table class="indicator-table">
                         <thead>
                             <tr>
-                                <th>Produto</th>
-                                <th>Preço</th>
-                                <th>Benefícios Principais</th>
+                                <th>Indicador</th>
+                                <th>Fonte Normativa</th>
+                                <th>ODS Correspondentes</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Onboarding</td>
-                                <td>R$ 1.190</td>
-                                <td>Ativação &amp; verificação inicial</td>
+                                <td>Gestão de Resíduos &amp; Economia Circular</td>
+                                <td>GRI 306: Waste 2020</td>
+                                <td>ODS&nbsp;12</td>
                             </tr>
                             <tr>
-                                <td>Pacote A</td>
-                                <td>R$ 600/ano</td>
-                                <td>Autoavaliação, evidências, plano trimestral</td>
+                                <td>Energia &amp; Recursos Renováveis</td>
+                                <td>GRI 302: Energy 2016</td>
+                                <td>ODS&nbsp;7</td>
                             </tr>
                             <tr>
-                                <td>Pacote B</td>
-                                <td>R$ 960/ano</td>
-                                <td>Pacote A + relatórios básicos, suporte por e‑mail</td>
+                                <td>Emissões e Carbono Neutro</td>
+                                <td>GRI 305: Emissions 2016</td>
+                                <td>ODS&nbsp;13</td>
                             </tr>
                             <tr>
-                                <td>Pacote C</td>
-                                <td>R$ 1.440/ano</td>
-                                <td>Pacote B + relatórios avançados, orientação trimestral</td>
+                                <td>Inovação Sustentável &amp; Tecnologia Verde</td>
+                                <td>GRI 203: Indirect Economic Impacts 2016</td>
+                                <td>ODS&nbsp;9</td>
                             </tr>
                             <tr>
-                                <td>Recertificação</td>
-                                <td>R$ 1.190</td>
-                                <td>Reabertura anual do ciclo</td>
+                                <td>Saúde, Segurança &amp; Bem‑estar</td>
+                                <td>GRI 403: Occupational Health &amp; Safety 2018</td>
+                                <td>ODS&nbsp;3</td>
+                            </tr>
+                            <tr>
+                                <td>Diversidade, Equidade &amp; Inclusão</td>
+                                <td>GRI 405/406: Diversity &amp; Non‑Discrimination 2016</td>
+                                <td>ODS&nbsp;5&nbsp;&amp;&nbsp;10</td>
+                            </tr>
+                            <tr>
+                                <td>Trabalho Decente, Educação &amp; Comunidade</td>
+                                <td>GRI 404/413: Training &amp; Local Communities 2016</td>
+                                <td>ODS&nbsp;4&nbsp;&amp;&nbsp;8</td>
+                            </tr>
+                            <tr>
+                                <td>Desenvolvimento Econômico &amp; Cadeia Responsável</td>
+                                <td>GRI 204/308/412: Procurement &amp; Supplier Assessment</td>
+                                <td>ODS&nbsp;8&nbsp;&amp;&nbsp;12</td>
+                            </tr>
+                            <tr>
+                                <td>Inclusão Digital &amp; Acessibilidade Tecnológica</td>
+                                <td>ISO / IEC 40500:2012 (WCAG 2.0)</td>
+                                <td>ODS&nbsp;9&nbsp;&amp;&nbsp;10</td>
+                            </tr>
+                            <tr>
+                                <td>Ética, Integridade &amp; Anticorrupção</td>
+                                <td>GRI 205: Anti‑corruption 2016 &amp; ISO 37001</td>
+                                <td>ODS&nbsp;16</td>
+                            </tr>
+                            <tr>
+                                <td>Transparência, Compliance &amp; Proteção de Dados</td>
+                                <td>GRI 418: Customer Privacy 2016 &amp; LGPD</td>
+                                <td>ODS&nbsp;16</td>
+                            </tr>
+                            <tr>
+                                <td>Parcerias Estratégicas &amp; Participação ODS</td>
+                                <td>Pacto Global da ONU</td>
+                                <td>ODS&nbsp;17</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="partner-call">
-                    <p>É contador ou associação? Torne‑se parceiro do NCS 2030 e ganhe
-                        comissionamento de 10–15% por cada nova adesão.</p>
-                    <button class="btn btn-secondary" onclick="alert('Programa de parceiros em breve')">
-                        Seja nosso parceiro
-                    </button>
+            </section>
+
+            <!--
+                Seções de informação reformuladas:
+                - Níveis do Selo: apresenta os requisitos e as faixas de pontuação de cada nível.
+                - Arquitetura Técnica & IA: descreve o fluxo de autoavaliação, evidências, auditoria remota,
+                  uso de inteligência artificial e segurança de dados, acompanhado de um diagrama ilustrativo.
+                - Planos & Precificação: explica as opções de adesão ao programa conforme porte e maturidade das empresas.
+            -->
+
+            <!-- Níveis do selo -->
+            <!--
+                A seção de níveis do selo foi reformulada para alinhar o título com o restante da página
+                e harmonizar os cartões com os demais componentes. Cada cartão agora possui
+                hover e transições suaves, além de cores de acento definidas por classes para
+                que não haja estilos inline.
+            -->
+            <section id="levels" class="levels-section">
+                <h2>Níveis do&nbsp;Selo</h2>
+                <div class="levels-grid">
+                    <div class="level-card level-nao-conforme">
+                        <h3>Não&nbsp;Conforme</h3>
+                        <p>0–39&nbsp;pontos</p>
+                        <p>Práticas básicas ausentes ou não documentadas.</p>
+                    </div>
+                    <div class="level-card level-conformidade">
+                        <h3>Conformidade</h3>
+                        <p>40–69&nbsp;pontos</p>
+                        <p>Atende aos requisitos mínimos com evidências documentadas.</p>
+                    </div>
+                    <div class="level-card level-avancado">
+                        <h3>Avançado</h3>
+                        <p>70–89&nbsp;pontos</p>
+                        <p>Processos implementados, monitorados e com melhoria contínua em andamento.</p>
+                    </div>
+                    <div class="level-card level-excelencia">
+                        <h3>Excelência</h3>
+                        <p>90–100&nbsp;pontos</p>
+                        <p>Maturidade plena com gestão estratégica e inovação em sustentabilidade.</p>
+                    </div>
                 </div>
             </section>
 
-            <!-- AI & security section -->
-            <section id="ia-security" class="info-section ia-security-section">
-                <h2>IA &amp; Segurança</h2>
-                <div class="ia-security-content">
-                    <p>Utilizamos inteligência artificial para orientar o onboarding e organizar as
-                        evidências, sempre com supervisão humana. Os custos estimados desse módulo
-                        durante o MVP ficam em torno de R$ 200 a 300/mês e revisamos periodicamente
-                        os algoritmos para reduzir vieses.</p>
-                    <p>O fluxo técnico do NCS 2030 garante proteção de ponta a ponta: o tráfego é
-                        filtrado pela Cloudflare, a aplicação roda em ambiente seguro da AWS e os
-                        dados ficam em bancos e armazenamentos cifrados.</p>
-                    <img src="530a14c6-5918-42fa-bbd9-7be862e4da36.png" alt="Fluxo técnico NCS 2030"
-                        class="ia-diagram">
-                </div>
+            <!-- Arquitetura técnica e IA -->
+            <section id="architecture" class="architecture-section">
+                <h2>Arquitetura&nbsp;Técnica&nbsp;&amp;&nbsp;IA</h2>
+                <!--
+                    Os parágrafos longos desta seção foram substituídos por uma lista
+                    concisa de itens que encaminham a leitura para os cartões e
+                    ilustram o fluxo da plataforma. A lista utiliza a classe
+                    bullet-list para aplicar um estilo consistente a todas as seções.
+                -->
+                <ul class="bullet-list">
+                    <li>Autoavaliação online: empresas preenchem indicadores ESG e ODS.</li>
+                    <li>Módulo de evidências: anexação estruturada de documentos comprobatórios.</li>
+                    <li>Auditoria remota: especialistas independentes validam as evidências.</li>
+                    <li>IA analisa dados e sugere melhorias conforme a maturidade observada.</li>
+                    <li>Infraestrutura segura com criptografia e conformidade à LGPD.</li>
+                </ul>
+                <!-- Imagem removida conforme orientação: não utilizar diagramas ou imagens na seção de arquitetura -->
             </section>
 
-            <!-- End of new informational sections -->
+            <!-- Planos de precificação -->
+            <section id="pricing" class="pricing-section">
+                <h2>Planos&nbsp;e&nbsp;Precificação</h2>
+                <!--
+                    A introdução textual foi condensada em uma lista de bullets para
+                    facilitar a leitura. Cada item resume os principais passos e
+                    escolhas que o participante precisa realizar antes de selecionar
+                    um pacote. Isso direciona a atenção do visitante aos cartões
+                    de preços sem sobrecarregar com texto corrido.
+                -->
+                <ul class="bullet-list">
+                    <li>Onboarding técnico obrigatório: ativação da empresa e verificação inicial das evidências.</li>
+                    <li>Escolha de um pacote anual (A, B ou C) conforme profundidade da análise e nível de apoio.</li>
+                    <li>Planos com pagamento adiantado e validade de 12 meses.</li>
+                    <li>Add‑ons opcionais: auditoria presencial, horas técnicas ou capacitações adicionais.</li>
+                </ul>
+                <div class="pricing-cards">
+                    <!-- Onboarding card -->
+                    <div class="pricing-card">
+                        <h3>Onboarding Técnico</h3>
+                        <p class="price">R$ 1.390</p>
+                        <ul>
+                            <li>Ativação da empresa e verificação inicial das evidências</li>
+                            <li>Análise documental e inclusão das evidências na plataforma</li>
+                            <li>Preço promocional de R$ 1.190 nas 100 primeiras adesões</li>
+                        </ul>
+                    </div>
+                    <!-- Pacote A – Essencial -->
+                    <div class="pricing-card">
+                        <h3>Pacote&nbsp;A&nbsp;–&nbsp;Essencial</h3>
+                        <p class="price">R$ 600/ano</p>
+                        <ul>
+                            <li>Diagnóstico estruturado com base na trilha mínima obrigatória</li>
+                            <li>Análise documental e amostragem proporcional ao risco</li>
+                            <li>Parecer consolidado por escrito com pontos fortes e lacunas</li>
+                        </ul>
+                    </div>
+                    <!-- Pacote B – Avançado -->
+                    <div class="pricing-card">
+                        <h3>Pacote&nbsp;B&nbsp;–&nbsp;Avançado</h3>
+                        <p class="price">R$ 1.140/ano</p>
+                        <ul>
+                            <li>Inclui todas as entregas do Pacote&nbsp;A</li>
+                            <li>Recomendações comentadas por pilar ESG–ODS</li>
+                            <li>Um encontro remoto de alinhamento para leitura do parecer e priorização dos planos de ação</li>
+                        </ul>
+                    </div>
+                    <!-- Pacote C – Excelência -->
+                    <div class="pricing-card">
+                        <h3>Pacote&nbsp;C&nbsp;–&nbsp;Excelência</h3>
+                        <p class="price">R$ 1.980/ano</p>
+                        <ul>
+                            <li>Inclui todas as entregas do Pacote&nbsp;B</li>
+                            <li>Aprofundamento em temas materiais do setor e devolutiva ampliada</li>
+                            <li>Até dois encontros remotos de revisão e suporte na organização das evidências para renovações ou negociações B2B</li>
+                        </ul>
+                    </div>
+                    <!-- Reavaliação anual -->
+                    <div class="pricing-card">
+                        <h3>Reavaliação Anual</h3>
+                        <p class="price">R$ 1.190</p>
+                        <ul>
+                            <li>Revisão anual das evidências e atualização do parecer</li>
+                            <li>Atualização do nível do selo conforme as melhorias realizadas</li>
+                            <li>Preparação para renovação, crédito ou relacionamento com grandes compradores</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
             <section class="cta-section">
-                <h2>Pronto para Certificar sua Empresa?</h2>
-                <p>Cadastre-se agora e obtenha seu selo de conformidade NCS 2030</p>
-                <button class="btn btn-primary btn-large" onclick="showView('login')" style="background: white; color: var(--primary-color);">Comece sua Autoavaliação</button>
+                <h2>Pronto para obter seu Selo?</h2>
+                <p>Cadastre‑se agora e participe do programa de avaliação para receber o Selo NCS – Governança &amp; Impacto.</p>
+                <button class="btn btn-primary btn-large" onclick="showView('login')" style="background: white; color: var(--primary-color);">Comece sua autoavaliação</button>
             </section>
         </div>
 
@@ -416,7 +549,7 @@
             <div class="dashboard-container">
                 <div class="dashboard-sidebar">
                     <div class="sidebar-header">
-                        <h2 style="color: var(--primary-color); margin: 0;">🌱 NCS 2030</h2>
+                        <h2 style="color: var(--primary-color); margin: 0;">🌱 NCS</h2>
                     </div>
                     <div class="company-info">
                         <div class="info-item">
@@ -441,7 +574,7 @@
                         <button class="nav-btn" onclick="switchDashboardTab('indicators')">📋 Indicadores</button>
                         <button class="nav-btn" onclick="switchDashboardTab('evidence')">📁 Evidências</button>
                         <button class="nav-btn" onclick="switchDashboardTab('reports')">📄 Relatórios</button>
-                        <button class="nav-btn" onclick="switchDashboardTab('certifications')">🏆 Certificações</button>
+                        <button class="nav-btn" onclick="switchDashboardTab('seal')">🏆 Selo</button>
                             <button class="nav-btn" onclick="switchDashboardTab('feedback')">💬 Feedback</button>
                             <button class="nav-btn" onclick="switchDashboardTab('plans')">🗓️ Planos</button>
                             <button class="nav-btn" onclick="switchDashboardTab('audit')">📋 Auditoria</button>
@@ -494,12 +627,13 @@
                                 </div>
                             </div>
                             <!-- Finance card showing licence and renewal info -->
+                            <!-- Cartão de ciclo de avaliação -->
                             <div class="stats-card">
-                                <div class="stat-icon" style="color: #14b8a6;">💼</div>
+                                <div class="stat-icon" style="color: #14b8a6;">📅</div>
                                 <div class="stat-content">
-                                    <p class="stat-label">Plano / Licença</p>
-                                    <p class="stat-value" id="license-plan">--</p>
-                                    <small id="license-expiry">Válido até --</small>
+                                    <p class="stat-label">Ciclo de Avaliação</p>
+                                    <p class="stat-value" id="cycle-name">--</p>
+                                    <small id="cycle-expiry">Válido até --</small>
                                 </div>
                             </div>
                         </div>
@@ -576,8 +710,8 @@
 
                     
                     <div id="evidence-tab" class="dashboard-tab">
-                        <h2>Evidências & Documentos</h2>
-                        <p class="tab-description">Envie documentos, certificados e evidências para cada indicador. Não há limite de arquivos por indicador.</p>
+                        <h2>Evidências &amp; Documentos</h2>
+                        <p class="tab-description">Envie documentos e evidências para cada indicador. Não há limite de arquivos por indicador.</p>
                         <div id="evidence-list" class="evidence-list"></div>
                     </div>
 
@@ -600,9 +734,9 @@
                     </div>
 
                     
-                    <div id="certifications-tab" class="dashboard-tab">
-                        <h2>Certificações</h2>
-                        <div id="certification-card" class="certification-display"></div>
+                    <div id="seal-tab" class="dashboard-tab">
+                        <h2>Selo</h2>
+                        <div id="seal-card" class="seal-display"></div>
                     </div>
 
                     
@@ -636,8 +770,8 @@
         
         <div id="directory-view" class="view">
             <div class="container">
-                <h1 style="text-align: center; margin-bottom: 1rem;">Diretório de Empresas Certificadas</h1>
-                <p class="directory-subtitle">Confira as empresas que já obtiveram o Selo NCS 2030</p>
+                <h1 style="text-align: center; margin-bottom: 1rem;">Diretório de Empresas com Selo</h1>
+                <p class="directory-subtitle">Confira as empresas que já obtiveram o Selo NCS – Governança &amp; Impacto</p>
                 
                 <div class="directory-filters">
                     <label for="filter-sector">Setor:
@@ -665,7 +799,7 @@
                     <button class="btn btn-secondary btn-small" type="button" onclick="resetFilters()">Limpar filtros</button>
                 </div>
 
-                <div class="level-legend" aria-label="Legenda dos níveis de certificação">
+                <div class="level-legend" aria-label="Legenda dos níveis do selo">
                     <div class="legend-item">
                         <span class="legend-color" style="background:#ef4444;"></span>
                         <span class="legend-text">Não&nbsp;Conforme<br><small>0–39&nbsp;pontos</small></span>
@@ -700,8 +834,8 @@
     <footer class="footer">
         <div class="footer-content">
             <div>
-                <h4>NCS 2030</h4>
-                <p class="footer-disclaimer">Referencial de Certificação ESG alinhado aos Objetivos de Desenvolvimento Sustentável da Agenda 2030 da ONU.</p>
+                <h4>NCS – Governança &amp; Impacto</h4>
+                <p class="footer-disclaimer">Programa anual de avaliação ESG e ODS para micro e pequenas empresas, promovendo governança responsável e impacto positivo.</p>
             </div>
             <div class="footer-links">
                 <div>
@@ -717,7 +851,7 @@
             </div>
         </div>
         <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
-            <p class="footer-copyright">© 2024-2025 NCS 2030. Todos os direitos reservados. | Desenvolvido com ❤️ para Sustentabilidade</p>
+            <p class="footer-copyright">© 2024‑2025 NCS – Governança &amp; Impacto. Todos os direitos reservados. | Desenvolvido com ❤️ para Sustentabilidade</p>
         </div>
     </footer>
 
