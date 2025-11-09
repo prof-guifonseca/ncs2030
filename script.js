@@ -114,11 +114,13 @@ const appState = {
             date: new Date().toISOString(),
             author: 'Sistema de Análise',
             type: 'Sugestão',
-            message: 'Bem-vindo ao NCS 2030! Comece preenchendo seus indicadores de sustentabilidade.',
+            // Mensagem atualizada para refletir a nova marca
+            message: 'Bem-vindo ao NCS – Governança & Impacto! Comece preenchendo seus indicadores de sustentabilidade.',
             read: false
         }
     ],
-    certifiedCompanies: [
+    // Lista de empresas que já receberam o selo
+    sealedCompanies: [
         {
             name: 'EcoTech Indústria Ltda.',
             cnpj: '12.345.678/0001-90',
@@ -127,7 +129,8 @@ const appState = {
             city: 'Curitiba',
             score: 92,
             founder: true,
-            certDate: '2025-01-15',
+            // data em que o parecer de conformidade foi emitido
+            sealDate: '2025-01-15',
             planPublicLink: '#'
         },
         {
@@ -138,7 +141,7 @@ const appState = {
             city: 'Londrina',
             score: 87,
             founder: false,
-            certDate: '2024-12-10',
+            sealDate: '2024-12-10',
             planPublicLink: '#'
         },
         {
@@ -149,7 +152,7 @@ const appState = {
             city: 'Maringá',
             score: 78,
             founder: false,
-            certDate: '2024-11-05',
+            sealDate: '2024-11-05',
             planPublicLink: '#'
         }
     ],
@@ -169,11 +172,11 @@ const appState = {
         { id: 1, date: new Date().toISOString(), message: 'Sugestão: revisar evidência do indicador de diversidade', status: null },
         { id: 2, date: new Date().toISOString(), message: 'Sugestão: anexar plano de ação para uso de energia renovável', status: null }
     ],
-    // Licence and billing information
-    license: {
-        plan: 'Pacote A',
+    // Informações sobre o ciclo de avaliação vigente
+    evaluationCycle: {
+        name: 'Ciclo 2024-2025',
         renewalDate: '2025-12-31',
-        status: 'Ativa'
+        status: 'Ativo'
     }
 };
 
@@ -276,8 +279,8 @@ function switchDashboardTab(tabName) {
         renderEvidenceList();
     } else if (tabName === 'feedback') {
         renderFeedbackList();
-    } else if (tabName === 'certifications') {
-        renderCertificationCard();
+    } else if (tabName === 'seal') {
+        renderSealCard();
     } else if (tabName === 'reports') {
         renderReports();
     } else if (tabName === 'plans') {
@@ -433,7 +436,7 @@ function updateDashboard() {
     renderPlansList();
     renderAuditTimeline();
     renderAISuggestions();
-    updateFinanceCard();
+    updateCycleCard();
 }
 
 function calculateProgress() {
@@ -776,8 +779,9 @@ function renderReports() {
 }
 
         
-function renderCertificationCard() {
-    const container = document.getElementById('certification-card');
+// Renderiza o cartão com o parecer de conformidade e o selo
+function renderSealCard() {
+    const container = document.getElementById('seal-card');
     if (!container) return;
 
     const percentage = appState.progress;
@@ -785,6 +789,7 @@ function renderCertificationCard() {
         .filter(ind => ind.status === 'Conforme')
         .reduce((sum, ind) => sum + ind.points, 0);
 
+    // Determina o nível e a cor do selo com base na pontuação
     let level = 'Não Conforme';
     let color = '#ef4444';
     if (percentage >= 90) {
@@ -801,27 +806,27 @@ function renderCertificationCard() {
     const isEligible = earnedPoints >= 40;
 
     container.innerHTML = `
-        <div class="cert-card" style="background: linear-gradient(135deg, ${color}, #0ea5e9);">
-            <div class="cert-number">NCS-2024-${Math.random().toString().substr(2, 5).toUpperCase()}</div>
-            <div class="cert-level">${level}</div>
-            <div class="cert-details">
-                <div class="cert-detail">
-                    <div class="cert-detail-label">Pontuação</div>
-                    <div class="cert-detail-value">${earnedPoints}/100</div>
+        <div class="seal-card" style="background: linear-gradient(135deg, ${color}, #0ea5e9);">
+            <div class="seal-number">NCS-2024-${Math.random().toString().substr(2, 5).toUpperCase()}</div>
+            <div class="seal-level">${level}</div>
+            <div class="seal-details">
+                <div class="seal-detail">
+                    <div class="seal-detail-label">Pontuação</div>
+                    <div class="seal-detail-value">${earnedPoints}/100</div>
                 </div>
-                <div class="cert-detail">
-                    <div class="cert-detail-label">Percentual</div>
-                    <div class="cert-detail-value">${percentage}%</div>
+                <div class="seal-detail">
+                    <div class="seal-detail-label">Percentual</div>
+                    <div class="seal-detail-value">${percentage}%</div>
                 </div>
-                <div class="cert-detail">
-                    <div class="cert-detail-label">Status</div>
-                    <div class="cert-detail-value">${isEligible ? 'Ativo' : 'Inelegível'}</div>
+                <div class="seal-detail">
+                    <div class="seal-detail-label">Status</div>
+                    <div class="seal-detail-value">${isEligible ? 'Ativo' : 'Inelegível'}</div>
                 </div>
             </div>
         </div>
 
-        <div class="cert-criteria">
-            <h4>Critérios de Conformidade:</h4>
+        <div class="seal-criteria">
+            <h4>Critérios para o Selo:</h4>
             <div class="criteria-list">
                 <div class="criteria-item${earnedPoints >= 40 ? '' : ' pending'}">
                     ✓ Mínimo de 40 pontos alcançados (${earnedPoints}/40)
@@ -836,11 +841,11 @@ function renderCertificationCard() {
 
             ${isEligible ? `
                 <div class="next-level">
-                    🎯 Próximo Nível: Avançado (requer 70 pontos)
+                    🎯 Próximo nível: Avançado (requer 70 pontos)
                 </div>
             ` : `
                 <div class="next-level">
-                    ⚠️ Continue preenchendo seus indicadores para alcançar a certificação.
+                    ⚠️ Continue preenchendo seus indicadores para alcançar o selo.
                 </div>
             `}
         </div>
@@ -963,15 +968,16 @@ function rejectSuggestion(id) {
     }
 }
 
-// Update finance card with license info
-function updateFinanceCard() {
-    const planEl = document.getElementById('license-plan');
-    const expiryEl = document.getElementById('license-expiry');
-    if (!planEl || !expiryEl) return;
-    const license = appState.license;
-    if (license) {
-        planEl.textContent = `${license.plan} (${license.status})`;
-        const date = new Date(license.renewalDate);
+// Atualiza o cartão do ciclo de avaliação no painel
+// Este card mostra o ciclo anual vigente e sua data de renovação, não se trata de licença.
+function updateCycleCard() {
+    const nameEl   = document.getElementById('cycle-name');
+    const expiryEl = document.getElementById('cycle-expiry');
+    if (!nameEl || !expiryEl) return;
+    const cycle = appState.evaluationCycle;
+    if (cycle) {
+        nameEl.textContent = `${cycle.name} (${cycle.status})`;
+        const date = new Date(cycle.renewalDate);
         expiryEl.textContent = `Válido até ${formatDate(date.toISOString())}`;
     }
 }
@@ -1008,28 +1014,28 @@ function computeLevel(score) {
 }
 
 // Render the directory of companies, optionally using a filtered list
-function renderCompaniesDirectory(list = appState.certifiedCompanies) {
+function renderCompaniesDirectory(list = appState.sealedCompanies) {
     const grid = document.getElementById('companies-grid');
     if (!grid) return;
     grid.innerHTML = '';
     list.forEach(company => {
         const { level, color, emoji } = computeLevel(company.score);
-        // compute validity date (one year after certification)
-        const certDate = new Date(company.certDate);
+        // compute validity date (one year after the parecer de conformidade was issued)
+        const certDate = new Date(company.sealDate);
         const validity = new Date(certDate);
         validity.setFullYear(validity.getFullYear() + 1);
         const card = document.createElement('div');
         card.className = 'company-card';
         card.innerHTML = `
-            <div class="certification-seal" style="background: ${color};">${emoji}</div>
+            <div class="seal-level-icon" style="background: ${color};">${emoji}</div>
             <h3>${company.name}</h3>
             <div class="company-cnpj">${company.cnpj}</div>
             <div class="company-info">${company.sector} • ${company.size} • ${company.city}</div>
             ${company.founder ? '<div class="founder-badge">Lote Fundadores</div>' : ''}
             <div class="company-level" style="color: ${color};">${level}</div>
-            <div class="company-date">Certificado em ${formatDate(company.certDate)}</div>
+            <div class="company-date">Parecer emitido em ${formatDate(company.sealDate)}</div>
             <div class="company-valid">Válido até ${formatDate(validity.toISOString())}</div>
-            <div><a href="${company.planPublicLink}" target="_blank" class="company-plan-link">Plano de Compromisso</a></div>
+            <div><a href="${company.planPublicLink}" target="_blank" class="company-plan-link">Compromisso Público</a></div>
         `;
         grid.appendChild(card);
     });
@@ -1040,7 +1046,7 @@ function applyFilters() {
     const sector = document.getElementById('filter-sector')?.value || '';
     const size   = document.getElementById('filter-size')?.value || '';
     const city   = (document.getElementById('filter-city')?.value || '').toLowerCase();
-    const filtered = appState.certifiedCompanies.filter(c => {
+    const filtered = appState.sealedCompanies.filter(c => {
         return (sector === '' || c.sector === sector) &&
                (size === '' || c.size === size) &&
                (city === '' || c.city.toLowerCase().includes(city));
@@ -1102,28 +1108,31 @@ function showModal(type) {
     if (type === 'terms') {
         body.innerHTML = `
             <h2>Termos de Uso</h2>
-            <p>O Referencial NCS 2030 – Selo de Conformidade é uma plataforma de autoavaliação ESG alinhada aos Objetivos de Desenvolvimento Sustentável (ODS) da Agenda 2030.</p>
-            <p>Ao utilizar esta plataforma, você concorda que:</p>
+            <p>
+                O programa NCS – Governança &amp; Impacto é um serviço digital de avaliação anual em ESG e ODS
+                destinado a micro e pequenas empresas. Ao utilizar a plataforma, você concorda que:
+            </p>
             <ul>
-                <li>Todas as informações fornecidas são precisas e verídicas</li>
-                <li>Você tem autoridade para representar a empresa</li>
-                <li>Utilizará a plataforma em conformidade com todas as leis aplicáveis</li>
-                <li>Todo conteúdo está protegido por leis de direitos autorais</li>
+                <li>Todas as informações fornecidas são precisas e verídicas;</li>
+                <li>Você possui autoridade para representar a empresa cadastrada;</li>
+                <li>Utilizará a plataforma em conformidade com todas as leis aplicáveis;</li>
+                <li>Todo o conteúdo é protegido por leis de direitos autorais e uso restrito;</li>
+                <li>A emissão do selo depende do cumprimento dos critérios de avaliação estabelecidos.</li>
             </ul>
         `;
     } else if (type === 'privacy') {
         body.innerHTML = `
             <h2>Política de Privacidade</h2>
-            <p>Estamos em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei 13.709/2018).</p>
-            <p><strong>Coleta de Dados:</strong> Coletamos informações que você nos fornece voluntariamente, incluindo dados da empresa e responsável.</p>
-            <p><strong>Uso de Dados:</strong> Seus dados são utilizados exclusivamente para:</p>
+            <p>Estamos em conformidade com a Lei Geral de Proteção de Dados (LGPD – Lei 13.709/2018).</p>
+            <p><strong>Coleta de Dados:</strong> coletamos informações que você nos fornece voluntariamente, incluindo dados da empresa e do responsável.</p>
+            <p><strong>Uso de Dados:</strong> seus dados são utilizados exclusivamente para:</p>
             <ul>
-                <li>Processar sua autoavaliação ESG</li>
-                <li>Gerar relatórios e certificações</li>
-                <li>Melhorar nossos serviços</li>
+                <li>Processar sua autoavaliação ESG;</li>
+                <li>Gerar relatórios e pareceres de conformidade;</li>
+                <li>Aprimorar nossos serviços e funcionalidades;</li>
             </ul>
-            <p><strong>Segurança:</strong> Seus dados são armazenados de forma segura e não são compartilhados com terceiros sem seu consentimento.</p>
-            <p><strong>Seus Direitos:</strong> Você tem direito a acessar, corrigir, deletar ou portabilidade de seus dados.</p>
+            <p><strong>Segurança:</strong> seus dados são armazenados de forma segura e não são compartilhados com terceiros sem o seu consentimento.</p>
+            <p><strong>Seus Direitos:</strong> você tem direito a acessar, corrigir, excluir ou solicitar a portabilidade de seus dados.</p>
         `;
     }
 
