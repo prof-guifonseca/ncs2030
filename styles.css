@@ -6,16 +6,17 @@
 }
 
 :root {
-    --primary-color: #3b82f6;
-    --secondary-color: #0ea5e9;
-    --success-color: #10b981;
-    --warning-color: #f59e0b;
-    --error-color: #ef4444;
+    /* Paleta de cores atualizada para tons de verde, transmitindo sustentabilidade e confiança */
+    --primary-color: #2c7a57;      /* verde escuro para elementos principais */
+    --secondary-color: #62ba8d;    /* verde claro para gradientes e destaques */
+    --success-color: #10b981;      /* mantém verde para mensagens de sucesso */
+    --warning-color: #eab308;      /* amarelo quente para avisos */
+    --error-color: #b91c1c;        /* vermelho escuro para erros */
     --dark-text: #1f2937;
     --light-bg: #f9fafb;
     --white: #ffffff;
     --border-color: #e5e7eb;
-    --focus-color: #1e40af;
+    --focus-color: #1c5c40;        /* verde escuro para estados de foco */
     --spacing-unit: 8px;
 }
 
@@ -29,6 +30,23 @@ body {
     color: var(--dark-text);
     line-height: 1.6;
     font-size: 16px;
+}
+
+/*
+ * Global typography rules
+ *
+ * Establish consistent heading weights and line heights across the site.
+ * Headings inherit their colour from their parent containers, allowing dark
+ * titles on light backgrounds and white titles on coloured sections (e.g. the
+ * hero). Paragraphs gain a standard bottom margin to improve vertical rhythm.
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+p {
+    margin-bottom: 1rem;
 }
 
 .skip-to-main {
@@ -153,8 +171,21 @@ main {
 }
 
 
+/*
+ * Hero section improvements
+ *
+ * To enhance readability and visual sophistication on the landing page, the hero
+ * section now uses a two‑layer gradient. The first layer is a semi‑transparent
+ * black overlay that sits on top of the green gradient. This improves
+ * contrast, ensuring that white headlines and copy remain legible against
+ * vibrant backgrounds. The second layer retains the existing green gradient
+ * from dark to light, preserving brand identity. Spacing has been kept
+ * generous to give the hero adequate breathing room.
+ */
 .hero {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: var(--white);
     padding: 6rem 2rem;
     text-align: center;
@@ -173,8 +204,11 @@ main {
 
 .hero-subtitle {
     font-size: 1.25rem;
-    margin-bottom: 2rem;
-    opacity: 0.95;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-ctas {
@@ -1053,14 +1087,14 @@ main {
 }
 
 
-.certification-display {
+.seal-display {
     background: var(--white);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.cert-card {
+.seal-card {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: var(--white);
     padding: 2rem;
@@ -1069,19 +1103,19 @@ main {
     text-align: center;
 }
 
-.cert-number {
+.seal-number {
     font-size: 0.9rem;
     opacity: 0.9;
     margin-bottom: 0.5rem;
 }
 
-.cert-level {
+.seal-level {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
 
-.cert-details {
+.seal-details {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
@@ -1089,26 +1123,26 @@ main {
     font-size: 0.85rem;
 }
 
-.cert-detail {
+.seal-detail {
     background: rgba(255, 255, 255, 0.1);
     padding: 0.75rem;
     border-radius: 4px;
 }
 
-.cert-detail-label {
+.seal-detail-label {
     opacity: 0.8;
     margin-bottom: 0.25rem;
 }
 
-.cert-detail-value {
+.seal-detail-value {
     font-weight: 600;
 }
 
-.cert-criteria {
+.seal-criteria {
     margin-top: 2rem;
 }
 
-.cert-criteria h4 {
+.seal-criteria h4 {
     margin-bottom: 1rem;
 }
 
@@ -1234,7 +1268,7 @@ main {
     transform: translateY(-4px);
 }
 
-.certification-seal {
+.seal-level-icon {
     width: 80px;
     height: 80px;
     margin: 0 auto 1rem;
@@ -1542,7 +1576,7 @@ main {
         grid-template-columns: 1fr;
     }
 
-    .cert-details {
+    .seal-details {
         grid-template-columns: 1fr;
     }
 }
@@ -1679,7 +1713,7 @@ main {
         font-size: 1rem;
     }
 
-    .cert-details {
+    .seal-details {
         grid-template-columns: 1fr;
     }
 }
@@ -1704,3 +1738,305 @@ main {
         border: 2px solid var(--dark-text);
     }
 }
+
+/* ------------------------------------------------------------------ */
+/* Novas seções para proposição de valor e metodologia (programa NCS – Governança & Impacto) */
+
+.value-section {
+    background: var(--white);
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.value-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--dark-text);
+}
+
+.value-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.value-card {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.value-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.value-card p {
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+.methodology-section {
+    background: var(--light-bg);
+    padding: 4rem 2rem;
+}
+
+.methodology-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--dark-text);
+}
+
+.methodology-section p {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.levels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.level-card {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    position: relative;
+    /* make the coloured accent on top thicker for a bolder visual cue */
+    border-top-width: 6px;
+    border-top-style: solid;
+    border-top-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+/*
+ * Ajustes adicionais para a seção de níveis do selo
+ * - Centralizar o título e adicionar espaçamento consistente
+ */
+.levels-section {
+    background: var(--light-bg);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.levels-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--dark-text);
+}
+
+/* Aplicar cores de acento específicas por nível sem uso de estilos inline */
+.level-nao-conforme {
+    border-top-color: var(--error-color);
+}
+
+.level-conformidade {
+    border-top-color: var(--warning-color);
+}
+
+.level-avancado {
+    border-top-color: #22c55e;
+}
+
+.level-excelencia {
+    border-top-color: #16a34a;
+}
+
+/* Dar aos cartões de nível um efeito de elevação ao passar o mouse */
+.level-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/*
+ * Lista em bullet utilizada nas seções de Arquitetura, Metodologia e Planos.
+ * Estilizada para alinhar o texto à esquerda, com espaçamento e largura
+ * máximos definidos para manter a legibilidade. O uso de disc inside
+ * garante que os marcadores apareçam dentro da área de texto.
+ */
+.bullet-list {
+    list-style-type: disc;
+    list-style-position: inside;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+    padding-left: 0.5rem;
+    text-align: left;
+    color: #6b7280;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.level-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+}
+
+.level-card p {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/*
+    ------------------------------------------------------------------
+    Estilos adicionais para as novas seções de 2025
+    Estes estilos suportam a tabela de indicadores, a seção de arquitetura
+    técnica e IA e a nova área de planos de precificação, alinhando tudo
+    à paleta de verdes e à estética limpa do site.
+*/
+
+/* Tabela de indicadores – resumo de indicadores, fontes e ODS */
+.indicator-summary {
+    overflow-x: auto;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+.indicator-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.indicator-table th,
+.indicator-table td {
+    border: 1px solid var(--border-color);
+    padding: 0.75rem;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.indicator-table thead {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.indicator-table tbody tr:nth-child(even) {
+    background: var(--light-bg);
+}
+
+.indicator-table tbody tr:hover {
+    background: #f0fdf4; /* tom suave de verde para destacar a linha */
+}
+
+/* Seção de Arquitetura Técnica & IA */
+.architecture-section {
+    background: var(--light-bg);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.architecture-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark-text);
+}
+
+.architecture-section p {
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+    color: #6b7280;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.architecture-diagram {
+    max-width: 800px;
+    width: 100%;
+    margin: 2rem auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Seção de Planos e Precificação */
+.pricing-section {
+    background: var(--white);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.pricing-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--dark-text);
+}
+
+.pricing-section p {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    color: #6b7280;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pricing-card {
+    background: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+}
+
+.pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.pricing-card .price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pricing-card ul li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+/* Fim dos estilos adicionais */
